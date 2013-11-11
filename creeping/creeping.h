@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <unistd.h>
 
 #include "base_window.h"
 #include "file_reader.h"
