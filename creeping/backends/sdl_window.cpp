@@ -62,7 +62,7 @@ set_background_color(unsigned char R, unsigned char G, unsigned char B, unsigned
 	bg_color[0] = 1.0f/255*R;
 	bg_color[1] = 1.0f/255*G;
 	bg_color[2] = 1.0f/255*B;
-	bg_color[3] = 1.0f/255*125;
+	bg_color[3] = 1.0f/255*A;
 	DEBUG_PRINT_LINE;
 }
 
