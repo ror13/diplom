@@ -170,14 +170,14 @@ init()
 	
 	for (i = text.begin(); i != text.end(); i++)
 	{
-		Surface * surf = new_surface(wnd);
+		CSurface * surf = new_surface(wnd);
 		surf->set_tex_color(conf.get_conf()->window.clForeground);
 		surf->set_text( &(*i), font_render);
 	}
 	
 	if(!logo.empty())
 	{
-		Surface * surf = new_surface(wnd);
+		CSurface * surf = new_surface(wnd);
 		surf->set_image(&logo);
 		surf->as_logo();		
 	}
@@ -250,9 +250,9 @@ redraw_window(void * _this)
 
 		self->wnd->clear();
 		
-		Surface  * logo = self->wnd->get_logo();
-		std::vector<Surface*> * surfaces =  self->wnd->get_surfaces();
-		std::vector<Surface*>::iterator i = surfaces->begin();
+		CSurface  * logo = self->wnd->get_logo();
+		std::vector<CSurface*> * surfaces =  self->wnd->get_surfaces();
+		std::vector<CSurface*>::iterator i = surfaces->begin();
 		int current_pos = timer.get_val();
 		int length = window_width - current_pos;
 		if(!surfaces->empty() &&  (current_pos - (*i)->get_width()) > window_width)

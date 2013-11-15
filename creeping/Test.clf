@@ -1,7 +1,7 @@
 General.bUseRSS = 0
 General.LineText = " lst  "
 General.bResizing = 1
-General.ScrollingSpeed = 10
+General.ScrollingSpeed = 200
 Font.lfHeight = -48
 Font.lfWidth = 0
 Font.lfEscapement = 0
@@ -24,6 +24,6 @@ Window.TransparencyFactor = 200
 Window.Rect.left = 0
 Window.Rect.top = 0
 Window.Rect.right = 600
-Window.Rect.bottom = 70
+Window.Rect.bottom = 0
 Window.Position = 1
 General.TextLayout = 1

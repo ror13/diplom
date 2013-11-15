@@ -6,11 +6,11 @@
 #include <string>
 
 #include "font_render.h"
-class Window;
-class Surface;
+class CWindow;
+class CSurface;
 
-Window  * new_window();
-Surface * new_surface(Window * wnd);
+CWindow  * new_window();
+CSurface * new_surface(CWindow * wnd);
 
 /*
 class Window
@@ -31,7 +31,7 @@ class Window
 class Surface
 {
 	public:
-		Surface(Window * wnd);
+		Surface(CWindow * wnd);
 		virtual ~Surface();
 		virtual void set_image(std::string *  str) {};
 		virtual void set_text(std::string *  str) {};
@@ -41,39 +41,39 @@ class Surface
 		virtual void draw() {};
 		virtual int get_width() {};
 	protected:
-		Window * parrent;	
+		CWindow * parrent;	
 };
 */
 
 
-class Window
+class CWindow
 {
 	public:
-		Window();
-		virtual ~Window();
+		CWindow();
+		virtual ~CWindow();
 		virtual void open(ConfFile * conf_file) = 0;
 		virtual void hide() = 0;
 		virtual void clear() = 0;
 		virtual void draw() = 0;
 		virtual void get_current_rect(int * x, int * y, 
 										int * width, int * height) = 0;
-		void reg_child(Surface * child);
-		void unreg_child(Surface * child);
-		void reg_logo(Surface * lg);
-		void unreg_logo(Surface * lg);
-		Surface  * get_logo();
-		std::vector <Surface *> * get_surfaces();
+		void reg_child(CSurface * child);
+		void unreg_child(CSurface * child);
+		void reg_logo(CSurface * lg);
+		void unreg_logo(CSurface * lg);
+		CSurface  * get_logo();
+		std::vector <CSurface *> * get_surfaces();
 		void delete_surfaces();
 	private:
-		Surface * logo;
-		std::vector <Surface *> childs;
+		CSurface * logo;
+		std::vector <CSurface *> childs;
 };
 
-class Surface
+class CSurface
 {
 	public:
-		Surface(Window * wnd);
-		virtual ~Surface();
+		CSurface(CWindow * wnd);
+		virtual ~CSurface();
 		virtual void set_image(std::string * str) = 0;
 		virtual void set_text(std::string *  str, FontRender * font_render) = 0;
 		virtual void clear() = 0;
@@ -84,7 +84,7 @@ class Surface
 		
 	protected:
 		bool is_logo;
-		Window * parrent;	
+		CWindow * parrent;	
 };
 
 #endif //BASE_WINDOW_H

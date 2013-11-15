@@ -3,17 +3,17 @@
 #include <pango/pangoft2.h>
 #include <gdk/gdk.h>
 
-#include "egl_window.h"
+#include "gles_window.h"
 #include "debug_utils.h"
 
 //------------------------------ MainWindow ---------------------------------------------------
-EglWindow::
-EglWindow()
+GlesWindow::
+GlesWindow()
 {
 	DEBUG_PRINT_LINE;
-	bcm_host_init();
+	init_window_system(&n_window);
 	memset(&window_rect,0,sizeof(window_rect));
-	graphics_get_display_size(0 /* LCD */, (unsigned int *)&window_rect.width, (unsigned int *)&window_rect.height);
+
 	memset(&bg_color,0,sizeof(bg_color));
 	box[0] = -1;	box[1] = -1;
 	box[2] = 1;		box[3] = -1;
@@ -28,18 +28,19 @@ EglWindow()
 	DEBUG_PRINT_LINE;
 }
 
-EglWindow::
-~EglWindow()
+GlesWindow::
+~GlesWindow()
 {
 	DEBUG_PRINT_LINE;
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisable(GL_TEXTURE_2D);
+	deinit_window_system(&n_window);
 	DEBUG_PRINT_LINE;
 	
 }
 
-void EglWindow::
+void GlesWindow::
 set_background_color(int RGBA)
 {
 	DEBUG_PRINT_LINE;
@@ -47,7 +48,7 @@ set_background_color(int RGBA)
 	DEBUG_PRINT_LINE;
 }
 
-void EglWindow::
+void GlesWindow::
 set_background_color(int RGB, unsigned char A)
 {
 	DEBUG_PRINT_LINE;
@@ -56,66 +57,58 @@ set_background_color(int RGB, unsigned char A)
 	DEBUG_PRINT_LINE;
 }
 
-void EglWindow::
+void GlesWindow::
 set_background_color(unsigned char R, unsigned char G, unsigned char B, unsigned char A)
 {
 	DEBUG_PRINT_LINE;
 	bg_color[0] = 1.0f/255*R;
 	bg_color[1] = 1.0f/255*G;
 	bg_color[2] = 1.0f/255*B;
-	bg_color[3] = 1.0f/255*125;
+	bg_color[3] = 1.0f/255*A;
 	DEBUG_PRINT_LINE;
 }
 
-void EglWindow::
+void GlesWindow::
 clear()
 {
 	glClear( GL_COLOR_BUFFER_BIT );
 	
 }
 
-void EglWindow::
+void GlesWindow::
 draw()
 {
 
-	eglSwapBuffers(display, surface);
+	swap_opengl_buffers(&n_window);
 }
 
-void EglWindow::
+void GlesWindow::
 hide()
 {
 //	eglSwapBuffers(display, surface);
 }
 
-void EglWindow::
+void GlesWindow::
 get_current_rect(int * x, int * y, 
 										int * width, int * height)
 {
 	DEBUG_PRINT_LINE;
 	*x = window_rect.x;
 	*y = window_rect.y;
-	*width = window_rect.width;
-	*height = window_rect.height;
+	*width = window_rect.w;
+	*height = window_rect.h;
 	DEBUG_PRINT_LINE;
 }
 
-void EglWindow::
+void GlesWindow::
 open(ConfFile * conf_file)
 {
 	DEBUG_PRINT_LINE;
-	int view_id;
-	int32_t success = 0;
-	EGLBoolean result;
-	EGLint num_config;
-	VC_RECT_T src_rect;
-	EGLConfig config;
-	int display_width = 1920, display_height = 1080;
-	
-	
-    
-    success = graphics_get_display_size(0, (uint32_t *)&display_width, (uint32_t *)&display_height);
+
+	int display_width = 1920, display_height = 1080, view_id = 0;    
+    get_screen_size(&display_width, &display_height);
     conf_file->wnd_pos_from_conf(display_width, display_height, (int*)&window_rect.x, (int*)&window_rect.y, 
-						(int*)&view_id, (int*)&window_rect.width, (int*)&window_rect.height);
+						(int*)&view_id, (int*)&window_rect.w, (int*)&window_rect.h);
 	
 	set_background_color(conf_file->get_conf()->window.clBackground, 
 						 conf_file->get_conf()->window.TransparencyFactor );
@@ -123,58 +116,7 @@ open(ConfFile * conf_file)
 
 	
 
-	const EGLint attribute_list[] =   {
-										EGL_RED_SIZE, 8,
-										EGL_GREEN_SIZE, 8,
-										EGL_BLUE_SIZE, 8,
-										EGL_ALPHA_SIZE, 8,
-										EGL_SURFACE_TYPE, EGL_WINDOW_BIT,
-										EGL_NONE
-										};
-	
-   // get an EGL display connection
-	display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-	assert(display!=EGL_NO_DISPLAY);
-
-   // initialize the EGL display connection
-	result = eglInitialize(display, NULL, NULL);
-	assert(EGL_FALSE != result);
-
-   // get an appropriate EGL frame buffer configuration
-	result = eglChooseConfig(display, attribute_list, &config, 1, &num_config);
-	assert(EGL_FALSE != result);
-
-   // create an EGL rendering context
-	context = eglCreateContext(display, config, EGL_NO_CONTEXT, NULL);
-	assert(context!=EGL_NO_CONTEXT);
-
-
-      
-	src_rect.x = 0;
-	src_rect.y = 0;
-	src_rect.width  = window_rect.width  << 16;
-	src_rect.height = window_rect.height  << 16;        
-
-	dispman_display = vc_dispmanx_display_open( 0 /* LCD */);
-	dispman_update = vc_dispmanx_update_start( 0 );
-
-    
-	dispman_element = vc_dispmanx_element_add ( dispman_update, dispman_display,
-      view_id/*layer*/, &window_rect, 0/*src*/,
-      &src_rect, DISPMANX_PROTECTION_NONE, 0 /*alpha*/, 0/*clamp*/, DISPMANX_NO_ROTATE/*transform*/);
-      
-	nativewindow.element = dispman_element;
-	nativewindow.width = window_rect.width;
-	nativewindow.height = window_rect.height;
-	vc_dispmanx_update_submit_sync( dispman_update );
-    
-    
-	surface = eglCreateWindowSurface( display, config, &nativewindow, NULL );
-	assert(surface != EGL_NO_SURFACE);
-
-	// connect the context to the surface
-	result = eglMakeCurrent(display, surface, surface, context);
-	assert(EGL_FALSE != result);
+	create_native_window(&n_window, &window_rect, view_id);
 	
 	
 	glEnable(GL_CULL_FACE);
@@ -197,8 +139,8 @@ open(ConfFile * conf_file)
 
 //------------------------------ layout ---------------------------------------------------
 
-EglSurface::
-EglSurface(Window * wnd):Surface(wnd)
+GlesSurface::
+GlesSurface(CWindow * wnd):CSurface(wnd)
 {
 	DEBUG_PRINT_LINE;
 	texture = NULL;
@@ -216,7 +158,7 @@ EglSurface(Window * wnd):Surface(wnd)
 	DEBUG_PRINT_LINE;	
 }
 
-void EglSurface::
+void GlesSurface::
 scaled(GLfloat x,  GLfloat y,  GLfloat z)
 {
 	DEBUG_PRINT_LINE;
@@ -226,7 +168,7 @@ scaled(GLfloat x,  GLfloat y,  GLfloat z)
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 set_tex_color(int RGB)
 {
 	DEBUG_PRINT_LINE;
@@ -237,7 +179,7 @@ set_tex_color(int RGB)
 	DEBUG_PRINT_LINE;
 }
 
-EglSurface::~EglSurface()
+GlesSurface::~GlesSurface()
 {
 	DEBUG_PRINT_LINE;
 	free_texture();
@@ -246,7 +188,7 @@ EglSurface::~EglSurface()
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 set_image(std::string * str)
 {
 	DEBUG_PRINT_LINE;
@@ -291,7 +233,7 @@ set_image(std::string * str)
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 set_text(std::string *  str, FontRender * font_render)
 {
 	DEBUG_PRINT_LINE;
@@ -344,14 +286,14 @@ set_text(std::string *  str, FontRender * font_render)
 	DEBUG_PRINT_LINE;	
 }
 
-int EglSurface::
+int GlesSurface::
 get_width()
 {
 	DEBUG_PRINT_LINE;
 	return tex_width;	
 }
 
-void EglSurface::
+void GlesSurface::
 set_pixels_array()
 {
 	DEBUG_PRINT_LINE;
@@ -374,14 +316,14 @@ set_pixels_array()
 
 
 
-void EglSurface::
+void GlesSurface::
 clear()
 {
 	DEBUG_PRINT_LINE;
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 draw(int x)
 {
 	DEBUG_PRINT_LINE;
@@ -417,7 +359,7 @@ draw(int x)
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 free_texture()
 {
 	DEBUG_PRINT_LINE;
@@ -428,7 +370,7 @@ free_texture()
 	DEBUG_PRINT_LINE;
 }
 
-void EglSurface::
+void GlesSurface::
 create_texture()
 {
 	DEBUG_PRINT_LINE;

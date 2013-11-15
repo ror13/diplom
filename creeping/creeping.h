@@ -57,7 +57,7 @@ class Creeping : public CThread
 		
 		bool is_once;
 		ConfFile conf;
-		Window * wnd;
+		CWindow * wnd;
 		FontRender * font_render;
 		pthread_mutex_t mutex;
 		unsigned int pos;

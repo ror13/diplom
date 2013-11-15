@@ -3,19 +3,19 @@
 
 
 
-#ifdef WITH_EGL_BCK
+#ifdef WITH_GLES_BCK
 
-#include "backends/egl_window.h"
+#include "backends/gles_window.h"
 
-Window  * new_window()
+CWindow  * new_window()
 {
 	DEBUG_PRINT_LINE;
-	return (Window  *) new EglWindow;
+	return (CWindow  *) new GlesWindow;
 }
-Surface * new_surface(Window * wnd)
+CSurface * new_surface(CWindow * wnd)
 {
 	DEBUG_PRINT_LINE;
-	return (Surface *) new EglSurface(wnd);
+	return (CSurface *) new GlesSurface(wnd);
 }
 #endif
 
@@ -24,15 +24,15 @@ Surface * new_surface(Window * wnd)
 
 #include "backends/sdl_window.h"
 
-Window  * new_window()
+CWindow  * new_window()
 {
 	DEBUG_PRINT_LINE;
-	return (Window  *) new SdlWindow;
+	return (CWindow  *) new SdlWindow;
 }
-Surface * new_surface(Window * wnd)
+CSurface * new_surface(CWindow * wnd)
 {
 	DEBUG_PRINT_LINE;
-	return (Surface *) new SdlSurface(wnd);
+	return (CSurface *) new SdlSurface(wnd);
 }
 
 //#elseif WITH_GDK_BCK
@@ -44,13 +44,13 @@ Surface * new_surface(Window * wnd)
 #endif
 
 
-Window::
-Window()
+CWindow::
+CWindow()
 {
 	logo = NULL;
 }
-Window::
-~Window()
+CWindow::
+~CWindow()
 {
 	DEBUG_PRINT_LINE;
 	delete_surfaces();
@@ -58,19 +58,19 @@ Window::
 	DEBUG_PRINT_LINE;
 }
 
-void Window::
-reg_child(Surface * child)
+void CWindow::
+reg_child(CSurface * child)
 {
 	DEBUG_PRINT_LINE;
 	childs.push_back(child);
 	DEBUG_PRINT_LINE;
 }
 
-void Window::
-unreg_child(Surface * child)
+void CWindow::
+unreg_child(CSurface * child)
 {
 	DEBUG_PRINT_LINE;
-	std::vector<Surface*>::iterator i;
+	std::vector<CSurface*>::iterator i;
 	for (i = childs.begin(); i != childs.end(); i++)
 		if(*i == child)
 		{
@@ -80,7 +80,7 @@ unreg_child(Surface * child)
 	DEBUG_PRINT_LINE;
 }
 
-void Window::reg_logo(Surface * lg)
+void CWindow::reg_logo(CSurface * lg)
 {
 	DEBUG_PRINT_LINE;
 	unreg_logo(lg);
@@ -88,7 +88,7 @@ void Window::reg_logo(Surface * lg)
 	DEBUG_PRINT_LINE;
 }
 
-void Window::unreg_logo(Surface * lg)
+void CWindow::unreg_logo(CSurface * lg)
 {
 	DEBUG_PRINT_LINE;
 	if (logo != NULL && logo != lg)
@@ -97,13 +97,13 @@ void Window::unreg_logo(Surface * lg)
 	DEBUG_PRINT_LINE;
 }
 
-Surface  * Window::get_logo()
+CSurface  * CWindow::get_logo()
 {
 	DEBUG_PRINT_LINE;
 	return logo;
 }
 
-void Window::delete_surfaces()
+void CWindow::delete_surfaces()
 {
 	DEBUG_PRINT_LINE;
 	while (!childs.empty())
@@ -113,14 +113,14 @@ void Window::delete_surfaces()
 	unreg_logo(NULL);
 	DEBUG_PRINT_LINE;
 }
-std::vector <Surface *> * Window::get_surfaces()
+std::vector <CSurface *> * CWindow::get_surfaces()
 {
 	return &childs;
 }
 
 
-Surface::
-Surface(Window * wnd)
+CSurface::
+CSurface(CWindow * wnd)
 {
 	DEBUG_PRINT_LINE;
 	is_logo = false;
@@ -129,7 +129,7 @@ Surface(Window * wnd)
 	DEBUG_PRINT_LINE;
 }
 
-void Surface::as_logo()
+void CSurface::as_logo()
 {
 	DEBUG_PRINT_LINE;
 	is_logo = true;
@@ -139,8 +139,8 @@ void Surface::as_logo()
 }
 		
 
-Surface::
-~Surface()
+CSurface::
+~CSurface()
 {
 	DEBUG_PRINT_LINE;
 	if(is_logo)
