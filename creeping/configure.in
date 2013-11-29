@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
 
-AC_INIT([creeping], [2.0], [yurand2@gmail.com])
+AC_INIT([creeping], [2.0], [sisraz@gmail.com])
 
 AM_INIT_AUTOMAKE([1.9 foreign])
 
@@ -22,40 +22,67 @@ PKG_CHECK_MODULES([GL], [gl >= 1])
 AC_SUBST(GL_CFLAGS)
 AC_SUBST(GL_LIBS)
 
-PKG_CHECK_MODULES([X11], [x11 >= 1])
-AC_SUBST(X11_CFLAGS)
-AC_SUBST(X11_LIBS)
-
-PKG_CHECK_MODULES([XRENDER], [xrender >= 0.9])
-AC_SUBST(XRENDER_CFLAGS)
-AC_SUBST(XRENDER_LIBS)
-
-
 PKG_CHECK_MODULES([PANGOFT2], [pangoft2 >= 1])
 AC_SUBST(PANGOFT2_CFLAGS)
 AC_SUBST(PANGOFT2_LIBS)
 
+AC_ARG_ENABLE([debug],
+[  --enable-debug    Turn on debugging],
+[case "${enableval}" in
+  yes) debug=true ;;
+  no)  debug=false ;;
+  *) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+esac],[debug=false])
+AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 
-dnl AC_CHECK_HEADER([curl/curl.h],,
-dnl    AC_MSG_ERROR([unable to find libcurl header files]))
-dnl AC_CHECK_LIB([curl], [curl_global_init],,
-dnl      AC_MSG_ERROR([unable to link with libcurl]))
+AC_ARG_ENABLE([windowsystem],
+    AS_HELP_STRING([--enable-windowsystem], [type system:linuxQT linuxX11 linuxRPI windowsQT; default linuxQT]))
 
-dnl AC_PATH_PROG([XML2_CONFIG], [xml2-config], [none])
-dnl if test "x$XML2_CONFIG" = "xnone"; then
-dnl 	AC_MSG_ERROR([xml2-config not found])
-dnl fi
+AS_CASE([$enable_windowsystem],
+  [linuxQT],	[
+					PKG_CHECK_MODULES([QT5WIDGETS], [Qt5Widgets >= 5])
+					AC_SUBST(QT5WIDGETS_CFLAGS)
+					AC_SUBST(QT5WIDGETS_LIBS)
 
-dnl CFLAGS="$CFLAGS `$XML2_CONFIG --cflags`"
-dnl LIBS="$LIBS `$XML2_CONFIG --libs`"
+					PKG_CHECK_MODULES([QT5OPENGL], [Qt5OpenGL >= 5])
+					AC_SUBST(XQT5OPENGL_CFLAGS)
+					AC_SUBST(QT5OPENGL_LIBS)
+									
+					AC_SUBST(WINDOWSYSTEM_CFLAGS, ["-DUSE_WND_PLATFORM_LINUX_QT $QT5WIDGETS_CFLAGS $QT5OPENGL -fPIC "])
+					AC_SUBST(WINDOWSYSTEM_LIBS,   ["-DUSE_WND_PLATFORM_LINUX_QT $QT5OPENGL_LIBS $QT5OPENGL_LIBS"])
+				],
+  [linuxX11],   [
+					PKG_CHECK_MODULES([X11], [x11 >= 1])
+					AC_SUBST(X11_CFLAGS)
+					AC_SUBST(X11_LIBS)
 
-dnl AC_PATH_PROG([XSLT_CONFIG], [xslt-config], [none])
-dnl if test "x$XSLT_CONFIG" = "xnone"; then
-dnl 	AC_MSG_ERROR([xslt-config not found])
-dnl fi
+					PKG_CHECK_MODULES([XRENDER], [xrender >= 0.9])
+					AC_SUBST(XRENDER_CFLAGS)
+					AC_SUBST(XRENDER_LIBS)
+					
+					AC_SUBST(WINDOWSYSTEM_CFLAGS, ["-DUSE_WND_PLATFORM_LINUX_X11 $XRENDER_CFLAGS $X11_CFLAGS"])
+					AC_SUBST(WINDOWSYSTEM_LIBS,   ["-DUSE_WND_PLATFORM_LINUX_X11 $X11_LIBS $XRENDER_LIBS"])
 
-dnl CFLAGS="$CFLAGS `$XSLT_CONFIG --cflags`"
-dnl LIBS="$LIBS `$XSLT_CONFIG --libs`"
+				],  
+  [linuxRPI],   [WND_FLAG=-DUSE_WND_PLATFORM_LINUX_RPI
+  
+				],
+  [windowsQT],  [WND_FLAG=-DUSE_WND_PLATFORM_WINDOWS_QT
+  
+				],
+  [  WND_FLAG=""]
+)
+
+
+AC_ARG_ENABLE([drawsystem],
+    AS_HELP_STRING([--enable-drawsystem], [type system:opengl glesv2; default opengl]))
+
+
+
+##AS_IF([test "x$enable_windowsystem" == "xno"], [])
+
+
+
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

@@ -1,4 +1,5 @@
 #include "window_platform_wrapper.h"
+#include "debug_utils.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -306,5 +307,57 @@ void
 swap_opengl_buffers(NativeWindow* n_window)
 {
 	glXSwapBuffers(n_window->Xdisplay, (GLXWindow) n_window->window_handle);
+}
+#endif
+
+#ifdef USE_WND_PLATFORM_LINUX_QT
+
+void 
+init_window_system(NativeWindow* n_window)
+{
+	DEBUG_PRINT_LINE;
+
+    DEBUG_PRINT_LINE;
+}
+void 
+deinit_window_system(NativeWindow* n_window)
+{
+	
+}
+void 
+get_screen_size(int * width, int * height)
+{
+	DEBUG_PRINT_LINE;
+	//QDesktopWidget desk;
+
+    *width = 1920;//desk.width() ;
+    *height = 1080;;//desk.height() ;
+    DEBUG_PRINT_LINE;
+}
+void 
+create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
+{
+	DEBUG_PRINT_LINE;
+	int argc = 0;
+    char** argv = NULL;
+    n_window->app = new QApplication(argc,argv);
+	DEBUG_PRINT_LINE;QGLFormat glFormat(QGL::Rgba | QGL::DoubleBuffer | QGL::DepthBuffer | QGL::AlphaChannel);
+    DEBUG_PRINT_LINE;n_window->window = new QGLWidget (glFormat, NULL, NULL, Qt::FramelessWindowHint);
+    DEBUG_PRINT_LINE;n_window->window->resize(wndrect->w,wndrect->h);
+    DEBUG_PRINT_LINE;n_window->window->show();
+
+    DEBUG_PRINT_LINE;n_window->window->makeCurrent();
+    DEBUG_PRINT_LINE;
+}
+void 
+destroy_native_window(NativeWindow* n_window)
+{
+	
+}
+void 
+swap_opengl_buffers(NativeWindow* n_window)
+{
+	n_window->window->swapBuffers ();
+	qApp->processEvents();
 }
 #endif

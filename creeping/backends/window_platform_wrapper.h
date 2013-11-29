@@ -44,6 +44,19 @@ typedef struct
 } NativeWindow;
 #endif
 
+#ifdef USE_WND_PLATFORM_LINUX_QT
+#include <QMainWindow>
+#include <QtWidgets/QApplication>
+#include <QtOpenGL/QGLWidget>
+#include <QDesktopWidget>
+
+typedef struct
+{
+	QApplication * app;
+	QGLWidget * window;
+} NativeWindow;
+#endif
+
 
 void init_window_system(NativeWindow* n_window);
 void deinit_window_system(NativeWindow* n_window);

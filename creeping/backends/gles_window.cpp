@@ -71,7 +71,7 @@ set_background_color(unsigned char R, unsigned char G, unsigned char B, unsigned
 void GlesWindow::
 clear()
 {
-	glClear( GL_COLOR_BUFFER_BIT );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	
 }
 
@@ -292,7 +292,7 @@ get_width()
 	DEBUG_PRINT_LINE;
 	return tex_width;	
 }
-
+int zzz = 0;
 void GlesSurface::
 set_pixels_array()
 {

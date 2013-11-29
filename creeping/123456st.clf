@@ -1,5 +1,5 @@
 General.bUseRSS = 1
-General.LineText = http://news.yandex.ru/hardware.rss
+General.LineText = http://rss.cnn.com/rss/edition_world.rss
 General.bResizing = 1
 General.ScrollingSpeed = 200
 Font.lfHeight = -48
