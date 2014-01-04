@@ -342,7 +342,7 @@ create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
     char** argv = NULL;
     n_window->app = new QApplication(argc,argv);
 	DEBUG_PRINT_LINE;QGLFormat glFormat(QGL::Rgba | QGL::DoubleBuffer | QGL::DepthBuffer | QGL::AlphaChannel);
-    DEBUG_PRINT_LINE;n_window->window = new QGLWidget (glFormat, NULL, NULL, Qt::FramelessWindowHint);
+    DEBUG_PRINT_LINE;n_window->window = new QGLWidget (glFormat, NULL, NULL, Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     DEBUG_PRINT_LINE;n_window->window->resize(wndrect->w,wndrect->h);
     DEBUG_PRINT_LINE;n_window->window->show();
 
