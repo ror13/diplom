@@ -57,6 +57,34 @@ typedef struct
 } NativeWindow;
 #endif
 
+#ifdef USE_WND_PLATFORM_WINDOWS_GL
+
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0500
+#endif
+
+#include <windows.h>
+#include <windowsx.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+//#include <dwmapi.h>
+
+
+#pragma comment (lib, "opengl32.lib")
+#pragma comment (lib, "glu32.lib")
+
+typedef struct
+{
+	const char* szAppName="creeping line";
+	HDC hdc;
+	HGLRC m_hrc;
+	HWND hWnd;         
+	WNDCLASSEX wc;
+	HINSTANCE hThisInst;
+	int w,h;
+} NativeWindow;
+#endif
+
 
 void init_window_system(NativeWindow* n_window);
 void deinit_window_system(NativeWindow* n_window);

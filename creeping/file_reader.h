@@ -7,7 +7,7 @@
 #define WINDOW_POSITION_TOP 1
 #define WINDOW_POSITION_BOTOM 2
 
-
+#ifndef _WIN32
 typedef struct tagLOGFONT {
   long lfHeight;
   long lfWidth;
@@ -24,7 +24,9 @@ typedef struct tagLOGFONT {
   char lfPitchAndFamily;
   char lfFaceName[LF_FACESIZE];
 } LOGFONT, *PLOGFONT;
-
+#else
+#include <windows.h>
+#endif
 typedef struct _ARECT
 {
 	int left;

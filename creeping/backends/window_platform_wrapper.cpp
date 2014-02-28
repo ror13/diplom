@@ -361,3 +361,200 @@ swap_opengl_buffers(NativeWindow* n_window)
 	qApp->processEvents();
 }
 #endif
+
+#ifdef USE_WND_PLATFORM_WINDOWS_GL
+#include <assert.h>
+#include <tchar.h>
+
+#ifdef  assert
+#define verify(expr) if(!expr) assert(0)
+#else verify(expr) expr
+#endif
+
+const TCHAR szAppName[]=_T("creeping line");
+const TCHAR wcWndName[]=_T("TransparentGL");
+
+HDC hDC; 
+HWND hWnd;           
+HGLRC m_hrc;        
+int w = 240;
+int h = 240;
+
+
+
+//-------------------------------dwnapi--------------@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#include <windows.h>
+ 
+#define DWM_BB_ENABLE                 0x00000001  // fEnable has been specified
+#define DWM_BB_BLURREGION             0x00000002
+#define PFD_SUPPORT_COMPOSITION       0x00008000
+ 
+typedef struct _DWM_BLURBEHIND
+{
+    DWORD dwFlags;
+    BOOL fEnable;
+    HRGN hRgnBlur;
+    BOOL fTransitionOnMaximized;
+} DWM_BLURBEHIND, *PDWM_BLURBEHIND;
+ 
+typedef struct _MARGINS
+{
+    int cxLeftWidth;      // width of left border that retains its size
+    int cxRightWidth;     // width of right border that retains its size
+    int cyTopHeight;      // height of top border that retains its size
+    int cyBottomHeight;   // height of bottom border that retains its size
+} MARGINS, *PMARGINS;
+ 
+extern "C"
+{
+    typedef HRESULT (WINAPI *t_DwmEnableBlurBehindWindow)(HWND hWnd, const DWM_BLURBEHIND* pBlurBehind);
+    typedef HRESULT (WINAPI *t_DwmExtendFrameIntoClientArea)(HWND hwnd, const MARGINS *pMarInset);
+}
+ 
+void DwmExtendFrameIntoClientArea(HWND hwnd, const MARGINS *pMarInset) {
+    HMODULE shell;
+ 
+    shell = LoadLibrary("dwmapi.dll");
+    if (shell) {
+        t_DwmExtendFrameIntoClientArea set_window_frame_into_client_area = reinterpret_cast<t_DwmExtendFrameIntoClientArea>(GetProcAddress (shell, "DwmExtendFrameIntoClientArea"));
+        set_window_frame_into_client_area(hwnd, pMarInset);
+ 
+        FreeLibrary (shell);
+    }
+ 
+}
+ 
+void DwmEnableBlurBehindWindow(HWND hwnd, const DWM_BLURBEHIND* pBlurBehind) {
+    HMODULE shell;
+ 
+    shell = LoadLibrary("dwmapi.dll");
+    if (shell) {
+        t_DwmEnableBlurBehindWindow set_window_blur = reinterpret_cast<t_DwmEnableBlurBehindWindow>(GetProcAddress (shell, "DwmEnableBlurBehindWindow"));
+        set_window_blur(hwnd, pBlurBehind);
+ 
+        FreeLibrary (shell);
+    }
+}
+//---------------------------------------------@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+LRESULT CALLBACK WindowFunc(HWND hWnd,UINT msg, WPARAM wParam, LPARAM lParam) {
+return DefWindowProc(hWnd,msg,wParam,lParam);
+
+}
+HINSTANCE hThisInst;
+void init_window_system(NativeWindow* n_window)
+{
+
+}
+void deinit_window_system(NativeWindow* n_window)
+{
+	
+}
+void get_screen_size(int * width, int * height)
+{
+	*width = 1920;//desk.width() ;
+	*height = 1080;;//desk.height() ;
+}
+
+void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
+{
+
+	  hThisInst= (HINSTANCE)GetModuleHandle(NULL);
+    WNDCLASSEX wc;
+    memset(&wc, 0, sizeof(wc));
+    wc.cbSize = sizeof(WNDCLASSEX);
+    wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+    wc.style = CS_HREDRAW | CS_VREDRAW;
+    wc.lpfnWndProc = (WNDPROC)WindowFunc;
+    wc.cbClsExtra  = 0;
+    wc.cbWndExtra  = 0;
+    wc.hInstance = hThisInst;
+    wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hbrBackground = (HBRUSH)CreateSolidBrush(0x00000000);
+    wc.lpszClassName = "CL";
+
+    if(!RegisterClassEx(&wc)) {
+        MessageBox(NULL, _T("RegisterClassEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
+        return ;
+    }
+     hWnd = CreateWindowEx(WS_EX_APPWINDOW, "CL", "CL",
+                    WS_VISIBLE | WS_POPUP, 0, 0, 1920, 70,
+                    NULL, NULL, hThisInst, NULL);
+
+    if(!hWnd) {
+        MessageBox(NULL, _T("CreateWindowEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
+        return ;
+    }
+
+    DWM_BLURBEHIND bb = {0};
+    HRGN hRgn = CreateRectRgn(0, 0, -1, -1);
+    bb.dwFlags = DWM_BB_ENABLE | DWM_BB_BLURREGION;
+    bb.hRgnBlur = hRgn;
+    bb.fEnable = TRUE;
+    DwmEnableBlurBehindWindow(hWnd, &bb);
+
+    PIXELFORMATDESCRIPTOR pfd = {
+      sizeof(PIXELFORMATDESCRIPTOR),
+      1,                                // Version Number
+      PFD_DRAW_TO_WINDOW      |         // Format Must Support Window
+      PFD_SUPPORT_OPENGL      |         // Format Must Support OpenGL
+      PFD_SUPPORT_COMPOSITION |         // Format Must Support Composition
+      PFD_DOUBLEBUFFER,                 // Must Support Double Buffering
+      PFD_TYPE_RGBA,                    // Request An RGBA Format
+      32,                               // Select Our Color Depth
+      0, 0, 0, 0, 0, 0,                 // Color Bits Ignored
+      8,                                // An Alpha Buffer
+      0,                                // Shift Bit Ignored
+      0,                                // No Accumulation Buffer
+      0, 0, 0, 0,                       // Accumulation Bits Ignored
+      24,                               // 16Bit Z-Buffer (Depth Buffer)
+      8,                                // Some Stencil Buffer
+      0,                                // No Auxiliary Buffer
+      PFD_MAIN_PLANE,                   // Main Drawing Layer
+      0,                                // Reserved
+      0, 0, 0                           // Layer Masks Ignored
+   };     
+
+   HDC hdc = GetDC(hWnd);
+   int PixelFormat = ChoosePixelFormat(hdc, &pfd);
+   if (PixelFormat == 0) {
+      assert(0);
+      return  ;
+   }
+
+   BOOL bResult = SetPixelFormat(hdc, PixelFormat, &pfd);
+   if (bResult==FALSE) {
+      assert(0);
+      return  ;
+   }
+
+   m_hrc = wglCreateContext(hdc);
+   if (!m_hrc){
+      assert(0);
+      return ;
+   }
+   
+   wglMakeCurrent(hdc, m_hrc);
+
+   ReleaseDC(hWnd, hdc);
+
+
+
+}
+void destroy_native_window(NativeWindow* n_window)
+{
+	
+}
+void swap_opengl_buffers(NativeWindow* n_window)
+{
+            HDC hdc = GetDC(hWnd);
+            wglMakeCurrent(hdc, m_hrc);
+
+ 
+
+            SwapBuffers(hdc);
+            ReleaseDC(hWnd, hdc);
+
+
+}
+#endif

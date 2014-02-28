@@ -5,6 +5,7 @@
 
 #include "file_reader.h"
 
+#ifndef _WIN32
 #define FW_DONTCARE  0
 #define FW_THIN  100
 #define FW_EXTRALIGHT  200
@@ -20,6 +21,9 @@
 #define FW_ULTRABOLD  800
 #define FW_HEAVY  900
 #define FW_BLACK  90
+#else
+#include <windows.h>
+#endif
 
 class FontRender
 {

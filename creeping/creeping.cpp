@@ -1,72 +1,8 @@
+#include <sys/time.h>
+
+
 #include "creeping.h"
 #include "debug_utils.h"
-#include <sys/time.h>
-//----------------------------------------------CThread -------------------
-
-CThread::
-CThread(void *(*funct) (void *), void * data)
-{
-	DEBUG_PRINT_LINE;
-	funct_ptr = funct;
-	funct_param = data;
-	runing = false;	
-	DEBUG_PRINT_LINE;
-}
-
-void CThread::
-start()
-{
-	DEBUG_PRINT_LINE;
-	stop();
-	pthread_attr_t attr;
-	pthread_attr_init(&attr);
-	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	pthread_create( &pid, &attr, funct_ptr, funct_param);
-	pthread_attr_destroy(&attr);
-	runing = true;
-	DEBUG_PRINT_LINE;
-}
-
-void CThread::
-join()
-{
-	DEBUG_PRINT_LINE;
-	if(!runing)
-		return;
-	while(pthread_kill(pid, 0) == 0)
-		sleep(1);
-	pthread_join(pid, NULL);
-	runing = false;
-	DEBUG_PRINT_LINE;
-}
-
-void CThread::
-stop()
-{
-	DEBUG_PRINT_LINE;
-	if(!runing)
-		return;
-	pthread_cancel(pid);
-	pthread_join(pid, NULL);
-	runing = false;
-	DEBUG_PRINT_LINE;
-}
-
-bool CThread::
-is_run()
-{
-	DEBUG_PRINT_LINE;
-	return runing;
-}
-
-CThread::
-~CThread()
-{
-	DEBUG_PRINT_LINE;
-	stop();
-	DEBUG_PRINT_LINE;
-}
-
 
 //----------------------------------------------CTimer -------------------
 
@@ -133,7 +69,6 @@ Creeping() : CThread(&Creeping::redraw_window, this)
 {
 	DEBUG_PRINT_LINE;
 	wnd = new_window();
-	pthread_mutex_init(&mutex, NULL);
 	font_render = NULL;
 	is_once = false;
 	DEBUG_PRINT_LINE;
@@ -145,7 +80,6 @@ Creeping::
 	DEBUG_PRINT_LINE;
 	deinit();
 	delete wnd;
-	pthread_mutex_destroy(&mutex);
 	DEBUG_PRINT_LINE;
 }
 
@@ -229,7 +163,7 @@ redraw_window(void * _this)
 	Creeping * self = (Creeping *) _this;
 	int window_x, window_y, window_width, window_height;
 	int redraw_timeout = std::max(1000000/self->conf.get_conf()->ScrollingSpeed,8333 );
-	pthread_mutex_lock( &self->mutex);
+	self->mutex.lock();
 	CTimer  timer;
 	timer.set_interval(1000000/self->conf.get_conf()->ScrollingSpeed);
 	self->wnd->open(&self->conf);
@@ -237,7 +171,7 @@ redraw_window(void * _this)
 	self->init();
 	self->wnd->draw();
 	timer.start();	
-	pthread_mutex_unlock( &self->mutex);
+	self->mutex.unlock();
 	
 	for(;;)
 	{
@@ -246,7 +180,7 @@ redraw_window(void * _this)
 		work_time.start();
 		pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
 		
-		pthread_mutex_lock( &self->mutex);
+		self->mutex.lock();
 
 		self->wnd->clear();
 		
@@ -276,7 +210,7 @@ redraw_window(void * _this)
 
 		self->wnd->draw();
 
-		pthread_mutex_unlock( &self->mutex);
+		self->mutex.unlock();
 		
 		pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 		pthread_testcancel();

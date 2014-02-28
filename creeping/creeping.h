@@ -3,29 +3,14 @@
 
 #include <vector>
 #include <string>
-#include <unistd.h>
 
 #include "base_window.h"
 #include "file_reader.h"
 #include "font_render.h"
 #include "message_reader.h"
+#include "cthread.h"
 
-class CThread
-{
-	public:
-		CThread(void *(*funct) (void *), void * data);
-		virtual ~CThread();
-		void start();
-		void stop();
-		void join();
-		bool is_run();
-	private:
-		void * funct_param;
-		void *(*funct_ptr) (void *);
-		pthread_t pid;
-		bool runing;
 
-};
 
 
 // work with miliseconds/pixels
@@ -59,7 +44,7 @@ class Creeping : public CThread
 		ConfFile conf;
 		CWindow * wnd;
 		FontRender * font_render;
-		pthread_mutex_t mutex;
+		CMutex mutex;
 		unsigned int pos;
 };
 

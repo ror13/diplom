@@ -36,7 +36,7 @@ esac],[debug=false])
 AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 
 AC_ARG_ENABLE([windowsystem],
-    AS_HELP_STRING([--enable-windowsystem], [type system:linuxQT linuxX11 linuxRPI windowsQT; default linuxQT]))
+    AS_HELP_STRING([--enable-windowsystem], [type system:linuxX11 linuxRPI windows; default linuxX11]))
 
 AS_CASE([$enable_windowsystem],
   [linuxQT],	[
@@ -67,8 +67,9 @@ AS_CASE([$enable_windowsystem],
   [linuxRPI],   [WND_FLAG=-DUSE_WND_PLATFORM_LINUX_RPI
   
 				],
-  [windowsQT],  [WND_FLAG=-DUSE_WND_PLATFORM_WINDOWS_QT
-  
+  [windows],  [WND_FLAG=-DUSE_WND_PLATFORM_WINDOWS_QT
+					AC_SUBST(WINDOWSYSTEM_CFLAGS, ["-DUSE_WND_PLATFORM_WINDOWS_GL"])
+					AC_SUBST(WINDOWSYSTEM_LIBS,   ["-DUSE_WND_PLATFORM_WINDOWS_GL -lpthread -lintl -lgio-2.0  -lgobject-2.0   -lglib-2.0 -lintl    -lshlwapi -lws2_32 -ldnsapi  "])
 				],
   [  WND_FLAG=""]
 )

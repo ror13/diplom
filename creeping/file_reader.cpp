@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <algorithm>
 
+#include "utils.h"
 #include "file_reader.h"
 
 #define True 1

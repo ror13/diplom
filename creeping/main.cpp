@@ -1,11 +1,13 @@
 #include <string>
 #include <iostream>
 
+#include "utils.h"
 #include "creeping.h"
 #include "debug_utils.h"
 
 #define OPTION_ARG_NONE 0
 #define OPTION_ARG_INT 1
+
 
 
 struct OptionEntry {
@@ -61,15 +63,14 @@ void parse_comand_line(int argc, char *argv[]){
 int
 main(int argc, char *argv[])
 {
-	
+	utils_setenv("FONTCONFIG_PATH", "fonts", 1);
 	parse_comand_line(argc,argv);
 	Creeping creeping;
 	if(!path_to_conf.empty())
 		creeping.open_conf(path_to_conf.c_str());
 	if(o_once)
 		creeping.play_once();
-
-	nice(-10);
+	//nice(-10);
 	
 	
 	creeping.start();

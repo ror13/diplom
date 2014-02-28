@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <pango/pangoft2.h>
-#include <gdk/gdk.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 #include "gles_window.h"
 #include "debug_utils.h"
@@ -132,7 +132,6 @@ open(ConfFile * conf_file)
 	glEnable(GL_TEXTURE_2D);
 	glClearColor(bg_color[0], bg_color[1], bg_color[2], bg_color[3]);
 	glClear( GL_COLOR_BUFFER_BIT );
-	
 
 	DEBUG_PRINT_LINE;
 }

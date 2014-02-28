@@ -2,7 +2,8 @@
 #define DEBUG_UTILS_H
 
 #ifdef WITH_DEBUG_UTILS 
-#define DEBUG_PRINT_LINE { fprintf( stderr, "%s ::: %s ::: <%d>:\n", __FILE__,__FUNCTION__, __LINE__ ); }
+#include "stdio.h"
+#define DEBUG_PRINT_LINE { printf(  "%s ::: %s ::: <%d>:\n", __FILE__,__FUNCTION__, __LINE__ ); }
 #else
 #define DEBUG_PRINT_LINE {  }
 #endif

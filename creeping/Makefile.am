@@ -12,8 +12,13 @@ endif
 
 INCLUDES = @GDK_CFLAGS@ @GTHREAD_CFLAGS@ @GL_CFLAGS@   @PANGOFT2_CFLAGS@  @WINDOWSYSTEM_CFLAGS@ -DWITH_GLES_BCK  $(DBG)
 bin_PROGRAMS = creeping
-creeping_SOURCES = base_window.cpp \
+creeping_SOURCES = main.cpp\
+		   utils.h \
+		   utils.cpp \
+		   cthread.h \
+		   cthread.cpp \
 		   debug_utils.h \
+		   base_window.cpp \
 		   base_window.h\
 		   base_window_backend.h  \
 		   creeping.cpp  \
@@ -26,12 +31,8 @@ creeping_SOURCES = base_window.cpp \
 		   backends/gles_window.h   \
 		   font_render.cpp  \
 		   font_render.h \
-		   main.cpp \
 		   message_reader.h \
-		   message_reader.cpp
-creeping_LDADD = @GDK_LIBS@ @GTHREAD_LIBS@ @GL_LIBS@    @PANGOFT2_LIBS@  @WINDOWSYSTEM_LIBS@    -lpthread  -lm -ldl -lGL  -lpthread  \
-	-L$(STAGING_DIR)/usr/lib/lib 
-
-#bin_SCRIPTS = creepingfeed
+		   message_reader.cpp 
+creeping_LDADD = @GDK_LIBS@  @GTHREAD_LIBS@ @GL_LIBS@    @PANGOFT2_LIBS@  @WINDOWSYSTEM_LIBS@ 
 
 
