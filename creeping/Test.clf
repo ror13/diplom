@@ -1,7 +1,7 @@
 General.bUseRSS = 0
 General.LineText = " lst  "
 General.bResizing = 1
-General.ScrollingSpeed = 200
+General.ScrollingSpeed = 500
 Font.lfHeight = -48
 Font.lfWidth = 0
 Font.lfEscapement = 0

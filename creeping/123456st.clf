@@ -1,7 +1,7 @@
 General.bUseRSS = 1
 General.LineText = http://rss.cnn.com/rss/edition_world.rss
 General.bResizing = 1
-General.ScrollingSpeed = 100
+General.ScrollingSpeed = 30
 Font.lfHeight = 48
 Font.lfWidth = 0
 Font.lfEscapement = 0
@@ -20,7 +20,7 @@ Font.clTextColor = 80
 Font.clTextSize = 36
 Window.clBackground = 21ff0f
 Window.clTransparentColor = 000000
-Window.TransparencyFactor = 125
+Window.TransparencyFactor = 80
 Window.Rect.left = 0
 Window.Rect.top = 20
 Window.Rect.right = 600

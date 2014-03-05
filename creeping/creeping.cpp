@@ -161,8 +161,8 @@ redraw_window(void * _this)
 {
 	DEBUG_PRINT_LINE;
 	Creeping * self = (Creeping *) _this;
+	int current_pos = 0;
 	int window_x, window_y, window_width, window_height;
-	int redraw_timeout = std::max(1000000/self->conf.get_conf()->ScrollingSpeed,8333 );
 	self->mutex.lock();
 	CTimer  timer;
 	timer.set_interval(1000000/self->conf.get_conf()->ScrollingSpeed);
@@ -170,14 +170,11 @@ redraw_window(void * _this)
 	self->wnd->get_current_rect(&window_x, &window_y, &window_width, &window_height);
 	self->init();
 	self->wnd->draw();
-	timer.start();	
+	timer.start();
 	self->mutex.unlock();
 	
 	for(;;)
 	{
-		CTimer  work_time;
-		work_time.set_interval(1);
-		work_time.start();
 		pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
 		
 		self->mutex.lock();
@@ -187,7 +184,7 @@ redraw_window(void * _this)
 		CSurface  * logo = self->wnd->get_logo();
 		std::vector<CSurface*> * surfaces =  self->wnd->get_surfaces();
 		std::vector<CSurface*>::iterator i = surfaces->begin();
-		int current_pos = timer.get_val();
+		current_pos = timer.get_val();
 		int length = window_width - current_pos;
 		if(!surfaces->empty() &&  (current_pos - (*i)->get_width()) > window_width)
 		{
@@ -222,12 +219,8 @@ redraw_window(void * _this)
 			self->init();
 			timer.set_val(0);
 		}else{
-			int time_sleep = redraw_timeout - work_time.get_val();
-			if ( time_sleep < 0)
-				continue;
-			if(time_sleep > redraw_timeout)
-				usleep(redraw_timeout);
-			usleep(time_sleep);
+			while ( current_pos == timer.get_val())
+				usleep(1);
 		}
 	}
 	DEBUG_PRINT_LINE;

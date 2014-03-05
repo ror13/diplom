@@ -384,7 +384,7 @@ int h = 240;
 
 //-------------------------------dwnapi--------------@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #include <windows.h>
- 
+ #include <winable.h>
 #define DWM_BB_ENABLE                 0x00000001  // fEnable has been specified
 #define DWM_BB_BLURREGION             0x00000002
 #define PFD_SUPPORT_COMPOSITION       0x00008000
@@ -537,7 +537,7 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
    wglMakeCurrent(hdc, m_hrc);
 
    ReleaseDC(hWnd, hdc);
-
+   BlockInput(true);
 
 
 }
