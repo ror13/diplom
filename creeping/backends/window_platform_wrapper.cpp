@@ -371,20 +371,13 @@ swap_opengl_buffers(NativeWindow* n_window)
 #else verify(expr) expr
 #endif
 
-const TCHAR szAppName[]=_T("creeping line");
-const TCHAR wcWndName[]=_T("TransparentGL");
-
-HDC hDC; 
-HWND hWnd;           
-HGLRC m_hrc;        
-int w = 240;
-int h = 240;
+        
 
 
 
-//-------------------------------dwnapi--------------@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-#include <windows.h>
- #include <winable.h>
+
+//-------------------------------dwnapi--------------
+#include <winable.h>
 #define DWM_BB_ENABLE                 0x00000001  // fEnable has been specified
 #define DWM_BB_BLURREGION             0x00000002
 #define PFD_SUPPORT_COMPOSITION       0x00008000
@@ -435,30 +428,29 @@ void DwmEnableBlurBehindWindow(HWND hwnd, const DWM_BLURBEHIND* pBlurBehind) {
         FreeLibrary (shell);
     }
 }
-//---------------------------------------------@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-LRESULT CALLBACK WindowFunc(HWND hWnd,UINT msg, WPARAM wParam, LPARAM lParam) {
+//---------------------------------------------
+static LRESULT CALLBACK WindowFunc(HWND hWnd,UINT msg, WPARAM wParam, LPARAM lParam) {
+/*switch (msg)	
+	{
+		case WM_WINDOWPOSCHANGING:		
+		{
+				SetWindowPos(hWnd,
+    HWND_TOPMOST,
+    0,
+    0,
+    1920,
+    1080,
+    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+				return 0;
+		}
+}*/
 return DefWindowProc(hWnd,msg,wParam,lParam);
 
 }
 HINSTANCE hThisInst;
 void init_window_system(NativeWindow* n_window)
 {
-
-}
-void deinit_window_system(NativeWindow* n_window)
-{
-	
-}
-void get_screen_size(int * width, int * height)
-{
-	*width = 1920;//desk.width() ;
-	*height = 1080;;//desk.height() ;
-}
-
-void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
-{
-
-	  hThisInst= (HINSTANCE)GetModuleHandle(NULL);
+	 hThisInst= (HINSTANCE)GetModuleHandle(NULL);
     WNDCLASSEX wc;
     memset(&wc, 0, sizeof(wc));
     wc.cbSize = sizeof(WNDCLASSEX);
@@ -477,11 +469,29 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
         MessageBox(NULL, _T("RegisterClassEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
         return ;
     }
-     hWnd = CreateWindowEx(WS_EX_APPWINDOW, "CL", "CL",
-                    WS_VISIBLE | WS_POPUP, 0, 0, 1920, 70,
+}
+void deinit_window_system(NativeWindow* n_window)
+{
+	
+}
+void get_screen_size(int * width, int * height)
+{
+	 RECT desktop;
+   const HWND hDesktop = GetDesktopWindow();
+   GetWindowRect(hDesktop, &desktop);
+   *width = desktop.right;
+   *height = desktop.bottom;
+}
+
+void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
+{
+
+
+     n_window->hWnd = CreateWindowEx(WS_EX_TOPMOST, "CL", "CL",
+                    WS_VISIBLE | WS_POPUP | WS_OVERLAPPED, wndrect->x, wndrect->y, wndrect->w, wndrect->h,
                     NULL, NULL, hThisInst, NULL);
 
-    if(!hWnd) {
+    if(!n_window->hWnd) {
         MessageBox(NULL, _T("CreateWindowEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
         return ;
     }
@@ -491,7 +501,7 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
     bb.dwFlags = DWM_BB_ENABLE | DWM_BB_BLURREGION;
     bb.hRgnBlur = hRgn;
     bb.fEnable = TRUE;
-    DwmEnableBlurBehindWindow(hWnd, &bb);
+    DwmEnableBlurBehindWindow(n_window->hWnd, &bb);
 
     PIXELFORMATDESCRIPTOR pfd = {
       sizeof(PIXELFORMATDESCRIPTOR),
@@ -515,7 +525,7 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
       0, 0, 0                           // Layer Masks Ignored
    };     
 
-   HDC hdc = GetDC(hWnd);
+   HDC hdc = GetDC(n_window->hWnd);
    int PixelFormat = ChoosePixelFormat(hdc, &pfd);
    if (PixelFormat == 0) {
       assert(0);
@@ -528,32 +538,57 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
       return  ;
    }
 
-   m_hrc = wglCreateContext(hdc);
-   if (!m_hrc){
+   n_window->m_hrc = wglCreateContext(hdc);
+   if (!n_window->m_hrc){
       assert(0);
       return ;
    }
    
-   wglMakeCurrent(hdc, m_hrc);
+   wglMakeCurrent(hdc, n_window->m_hrc);
 
-   ReleaseDC(hWnd, hdc);
-   BlockInput(true);
+   ReleaseDC(n_window->hWnd, hdc);
+   //BlockInput(true); disable interrupt from input devices
 
 
 }
 void destroy_native_window(NativeWindow* n_window)
 {
-	
+	if (n_window->hWnd != 0)
+	{
+		HDC hdc = GetDC(n_window->hWnd);
+		if (hdc != 0)
+		{
+			wglMakeCurrent (hdc, 0);
+			if (n_window->m_hrc != 0)
+			{
+				wglDeleteContext (n_window->m_hrc);
+				n_window->m_hrc = 0;
+			}
+			ReleaseDC (n_window->hWnd, hdc);
+		}
+		DestroyWindow (n_window->hWnd);
+		n_window->hWnd = 0;
+	}
 }
 void swap_opengl_buffers(NativeWindow* n_window)
 {
-            HDC hdc = GetDC(hWnd);
-            wglMakeCurrent(hdc, m_hrc);
+            HDC hdc = GetDC(n_window->hWnd);
+            wglMakeCurrent(hdc, n_window->m_hrc);
 
  
 
             SwapBuffers(hdc);
-            ReleaseDC(hWnd, hdc);
+            ReleaseDC(n_window->hWnd, hdc);
+            
+            MSG msg;
+            if (PeekMessage (&msg, n_window->hWnd, 0, 0, PM_REMOVE) != 0)
+            {
+				TranslateMessage (&msg);
+				DispatchMessage (&msg);
+			}
+
+            
+            
 
 
 }

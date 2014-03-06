@@ -75,13 +75,8 @@ typedef struct
 
 typedef struct
 {
-	const char* szAppName="creeping line";
-	HDC hdc;
+	HWND hWnd;           
 	HGLRC m_hrc;
-	HWND hWnd;         
-	WNDCLASSEX wc;
-	HINSTANCE hThisInst;
-	int w,h;
 } NativeWindow;
 #endif
 

@@ -1,7 +1,7 @@
 General.bUseRSS = 1
 General.LineText = http://rss.cnn.com/rss/edition_world.rss
 General.bResizing = 1
-General.ScrollingSpeed = 30
+General.ScrollingSpeed = 60
 Font.lfHeight = 48
 Font.lfWidth = 0
 Font.lfEscapement = 0

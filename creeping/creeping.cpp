@@ -218,9 +218,6 @@ redraw_window(void * _this)
 		{
 			self->init();
 			timer.set_val(0);
-		}else{
-			while ( current_pos == timer.get_val())
-				usleep(1);
 		}
 	}
 	DEBUG_PRINT_LINE;
