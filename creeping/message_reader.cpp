@@ -1,34 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <curl/curl.h>
+#include <curl/easy.h>
+
 #include "utf8cpp/utf8.h"
 #include "message_reader.h"
 
 
 #define MAX_TEXT_LENGTH 10
 
+size_t write_data(void *ptr, size_t size, size_t nmemb, std::string * text) {
+    text->append((const char*)ptr, size * nmemb);
+    return nmemb;
+}
+
 void MessageReader::
 make(char * msg, bool isRss, std::vector<std::string> * ret_text, std::string * ret_logo)
 {
 
 	
-    std::string text;
-    
-    if(isRss)
-    {
-		std::string cmd("wget -O - \"");
-		cmd += msg;
-		cmd += "\"\n";
-		FILE* pipe = popen(cmd.c_str(), "r");
-		if (pipe)
-		{
-			char buffer[128];
-			while(!feof(pipe))
-				if(fgets(buffer, 128, pipe) != NULL)
-					text += buffer;
-			pclose(pipe);
+	std::string text;
+	if(isRss)
+	{
+		CURL * curl = curl_easy_init();
+		if (curl) {
+			curl_easy_setopt(curl, CURLOPT_URL, msg);
+			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &text);
+			curl_easy_perform(curl);
+			curl_easy_cleanup(curl);
 		}
-		
 		if(text.empty())
 			text = "can't download rss";
 		else
