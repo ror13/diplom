@@ -1,0 +1,616 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 25, 1\r\n"
+    "#pragma code_page(1251)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\CreepingLine.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Стандартные компоненты\r\n"
+    "#include ""afxprint.rc""       // печать/просмотр печати ресурсов\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\CreepingLine.ico"
+IDR_LINETYPE            ICON    DISCARDABLE     "res\\CreepingLineDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_OPTIONS
+    SEPARATOR
+    BUTTON      ID_RUN_CREEPING_LINE
+    BUTTON      ID_STOP_CREEPING_LINE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&Файл"
+    BEGIN
+        MENUITEM "&Новый\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Открыть...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Сохранить\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Сохранить &как...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Печать...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Просмотр пе&чати",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "Установка п&ечати...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Последний Файл",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "В&ыход",                       ID_APP_EXIT
+    END
+    POPUP "&Редакт-ть"
+    BEGIN
+        MENUITEM "&Отмена\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Вы&резать\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Копировать\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Вставить\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&Опции"
+    BEGIN
+        MENUITEM "Опции &бегущей строки\tCtrl+E", ID_OPTIONS
+        MENUITEM "&Запуск бегущей строки\tF5",      ID_RUN_CREEPING_LINE
+        MENUITEM "&Остановить запущенную бегущую строку\tF6", ID_STOP_CREEPING_LINE
+    END
+    POPUP "&Окно просмотра"
+    BEGIN
+        MENUITEM "&Панель инструментов",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Строка состояния",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "П&омощь"
+    BEGIN
+        MENUITEM "&О бегущей строке...",      ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Опции &бегущей строки\tCtrl+E", ID_OPTIONS
+        MENUITEM "&Запуск бегущей строки\tF5",      ID_RUN_CREEPING_LINE
+        MENUITEM "&Остановить запущенную бегущую строку\tF6", ID_STOP_CREEPING_LINE
+    END
+END
+
+IDR_CREEPING_LINE_POPUP_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "_CREEPING_LINE_POPUP_"
+    BEGIN
+        MENUITEM "Опции &бегущей строки\tCtrl+E", ID_OPTIONS
+        MENUITEM "&Закрыть\tEsc",                 ID_CLOSE_CREEPING_LINE
+    END
+    MENUITEM "_TEMP_",                      65535
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "E",            ID_OPTIONS,             VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F5,          ID_RUN_CREEPING_LINE,   VIRTKEY, NOINVERT
+    VK_F6,          ID_STOP_CREEPING_LINE,  VIRTKEY, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "О бегущей строке"
+FONT 8, "Arial"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Версия бегущей строки 1.1",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "Да",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_PROPPAGE_GENERAL DIALOG DISCARDABLE  0, 0, 287, 226
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "&Общие"
+FONT 8, "Arial"
+BEGIN
+    CONTROL         "&Использовать RSS",IDC_USE_RSS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,7,146,10
+    LTEXT           "&Текст:",IDC_TEXT_STATIC,7,21,31,8
+    EDITTEXT        IDC_TEXT,7,31,273,14,ES_AUTOHSCROLL
+    GROUPBOX        "Опции прокрутки текста",IDC_STATIC,7,50,273,88
+    LTEXT           "Скорость &прокрутки текста:",IDC_STATIC,14,62,56,8
+    EDITTEXT        IDC_SPEED_EDIT,82,76,64,14,ES_AUTOHSCROLL
+    LTEXT           "пикселей / секунду",IDC_STATIC,156,78,83,8
+    CONTROL         "Slider1",IDC_SPEED_SLIDER,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,14,98,259,17
+    LTEXT           "медленнее",IDC_STATIC,14,122,39,8
+    RTEXT           "бысрее",IDC_STATIC,230,122,43,8
+    LTEXT           "ПРЕДУПРЕЖДЕНИЕ: Бегущая строка может замедляться, когда фактор прозрачности меньше 255, окно слишком большое или система занята другим процессом!",
+                    IDC_STATIC,7,167,273,30
+    PUSHBUTTON      "&Просмотр",IDC_PREVIEW,7,204,50,14
+    PUSHBUTTON      "&Остановить просмотр",IDC_STOP_PREVIEW,63,204,87,14
+    LTEXT           "Static",IDC_SPEED_DESC,82,62,191,8
+    COMBOBOX        IDC_DIRECTION,7,150,75,52,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Направление текста",IDC_STATIC,7,140,38,8
+END
+
+IDD_PROPPAGE_FONT DIALOG DISCARDABLE  0, 0, 308, 226
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "&Шрифт"
+FONT 8, "Arial"
+BEGIN
+    PUSHBUTTON      "&Выбрать шрифт",IDC_CHOOSE_FONT,137,17,71,14
+    LTEXT           "&Шрифт:",IDC_STATIC,7,7,30,8
+    EDITTEXT        IDC_FONT_DESC,7,17,119,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Пример:",IDC_STATIC,7,40,294,130
+    CONTROL         "",IDC_FONT_EXAMPLE_FRAME,"Static",SS_BLACKFRAME | NOT 
+                    WS_VISIBLE,15,50,279,112
+    PUSHBUTTON      "&Просмотр",IDC_PREVIEW,7,204,50,14
+    PUSHBUTTON      "&Остановить просмотр",IDC_STOP_PREVIEW,63,204,86,14
+END
+
+IDD_PROPPAGE_WINDOW DIALOGEX 0, 0, 317, 226
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "&Окно && Прозрачность"
+FONT 8, "Arial", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Цвет фона",IDC_BACKGROUND_COLOR,13,7,86,19
+    CONTROL         "Разрешить &изменение границ окна",IDC_RESIZING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,106,14,198,8
+    GROUPBOX        "Настройки прозрачности",IDC_STATIC,7,31,303,166
+    PUSHBUTTON      "&Прозрачный цвет",IDC_TRANSPARENT_COLOR,13,62,86,19
+    LTEXT           "ЗАМЕЧАНИЕ! Прозрачный цвет не будет виден в окне.\nВы можете сделать его таким же как фоновый цвет, запретить изменение размера и текст будет показываться без окна!",
+                    IDC_STATIC,106,56,198,35
+    EDITTEXT        IDC_TRANSPARENT_FACTOR,13,95,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "&Фактор прозрачности (0-255):\n0 - прозрачный\t255 - непрозрачный",
+                    IDC_STATIC,60,95,184,19
+    CONTROL         "Slider1",IDC_TRANSPARENT_FACTOR_SLIDER,
+                    "msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,
+                    13,121,291,20
+    EDITTEXT        IDC_TRANSPARENT_EXAMPLE,13,148,291,42,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "&Просмотр",IDC_PREVIEW,7,204,50,14
+    PUSHBUTTON      "&Остановить просмотр",IDC_STOP_PREVIEW,63,204,86,14
+    CONTROL         "&Сделать бегущую строку прозрачной",IDC_TRANSPARENT_WINDOW,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,43,177,10
+    LTEXT           "прозрачный",IDC_STATIC,13,113,50,8
+    RTEXT           "непрозрачный",IDC_STATIC,249,113,55,8
+END
+
+IDD_PROPPAGE_POSITION DIALOG DISCARDABLE  0, 0, 317, 226
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "&Позиция окна"
+FONT 8, "Arial"
+BEGIN
+    RTEXT           "&Левая граница:",IDC_STATIC,66,34,54,8
+    EDITTEXT        IDC_RECT_LEFT,83,45,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&Правая граница:",IDC_STATIC,132,34,59,8
+    EDITTEXT        IDC_RECT_RIGHT,132,45,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&Верхняя граница:",IDC_STATIC,13,61,68,8
+    EDITTEXT        IDC_RECT_TOP,19,73,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "&Нижняя граница:",IDC_STATIC,13,91,61,8
+    EDITTEXT        IDC_RECT_BOTTOM,20,103,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    COMBOBOX        IDC_RESOLUTION_COMBO,180,49,105,80,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_MONITOR_FRAME,"Static",SS_GRAYRECT | SS_NOTIFY | 
+                    WS_BORDER,81,67,207,123
+    LTEXT           "ЗАМЕЧАНИЕ: Нажмите \nкнопку Shift\nдля постепенного\nизменения\nбегущей строки!",
+                    IDC_STATIC,13,132,61,48
+    PUSHBUTTON      "&Просмотр",IDC_PREVIEW,7,204,50,14
+    PUSHBUTTON      "&Остановить просмотр",IDC_STOP_PREVIEW,63,204,86,14
+    GROUPBOX        "Абсолютная позиция",IDC_STATIC,7,26,303,171
+    LTEXT           "Стыкуемое окно:",IDC_STATIC,7,9,68,8
+    COMBOBOX        IDC_POS,81,7,72,49,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Изменить Пользовательское разрешение",IDC_CUSTOM_RESOLUTIONS,209,33,
+                    76,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Коментарии", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "CreepingLine MFC Application\0"
+            VALUE "FileVersion", "1, 1, 0, 0\0"
+            VALUE "InternalName", "CreepingLine\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "CreepingLine.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "CreepingLine Application\0"
+            VALUE "ProductVersion", "1, 1, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Перевод", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PROPPAGE_GENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        VERTGUIDE, 14
+        VERTGUIDE, 82
+        VERTGUIDE, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+        HORZGUIDE, 100
+    END
+
+    IDD_PROPPAGE_FONT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 301
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+    END
+
+    IDD_PROPPAGE_WINDOW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        VERTGUIDE, 13
+        VERTGUIDE, 99
+        VERTGUIDE, 106
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+        HORZGUIDE, 121
+        HORZGUIDE, 190
+    END
+
+    IDD_PROPPAGE_POSITION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        VERTGUIDE, 13
+        VERTGUIDE, 81
+        VERTGUIDE, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+        HORZGUIDE, 190
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROPPAGE_POSITION DLGINIT
+BEGIN
+    IDC_POS, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_POS, 0x403, 4, 0
+0x6f54, 0x0070, 
+    IDC_POS, 0x403, 7, 0
+0x6f42, 0x7474, 0x6d6f, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Бегущая\n\nСтрока\nФайлы Бегущей строки (*.clf)\n.clf\nCreepingLine.Document\nCreeping Line Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "CreepingLine"
+    AFX_IDS_IDLEMESSAGE     "Готово"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Создать новый документ\nНовый"
+    ID_FILE_OPEN            "Открыть существующий документ\nОткрыть"
+    ID_FILE_CLOSE           "Закрыть активный документ\nЗакрыть"
+    ID_FILE_SAVE            "Сохранить активный документ\nСохранить"
+    ID_FILE_SAVE_AS         "Сохранить активный документ под новым именем\nСохранить Как"
+    ID_FILE_PAGE_SETUP      "Изменить опции печати\nНастройка страницы"
+    ID_FILE_PRINT_SETUP     "Изменить принтер и опции печати\nНастройка Печати"
+    ID_FILE_PRINT           "Печать активного документа\nПечать"
+    ID_FILE_PRINT_PREVIEW   "Отобразить полноэкранные страницы\nПросмотр печати"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Отобразить информацию о программе, номер версии и авторское право\nО программе"
+    ID_APP_EXIT             "Выход из приложения; запрос на сохранение документов\nВыход"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Открыть этот документ"
+    ID_FILE_MRU_FILE2       "Открыть этот документ"
+    ID_FILE_MRU_FILE3       "Открыть этот документ"
+    ID_FILE_MRU_FILE4       "Открыть этот документ"
+    ID_FILE_MRU_FILE5       "Открыть этот документ"
+    ID_FILE_MRU_FILE6       "Открыть этот документ"
+    ID_FILE_MRU_FILE7       "Открыть этот документ"
+    ID_FILE_MRU_FILE8       "Открыть этот документ"
+    ID_FILE_MRU_FILE9       "Открыть этот документ"
+    ID_FILE_MRU_FILE10      "Открыть этот документ"
+    ID_FILE_MRU_FILE11      "Открыть этот документ"
+    ID_FILE_MRU_FILE12      "Открыть этот документ"
+    ID_FILE_MRU_FILE13      "Открыть этот документ"
+    ID_FILE_MRU_FILE14      "Открыть этот документ"
+    ID_FILE_MRU_FILE15      "Открыть этот документ"
+    ID_FILE_MRU_FILE16      "Открыть этот документ"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Переключиться на следующую панель\nСледующая панель"
+    ID_PREV_PANE            "Перейти к предыдущей панели окна\nПредыдущая Панель"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Разбить активное окно на области\nРазбить"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Стереть выделенное\nСтереть"
+    ID_EDIT_CLEAR_ALL       "Стереть всё\nСтереть Всё"
+    ID_EDIT_COPY            "Копировать выделенное и поместить на рабочий стол\nКопировать"
+    ID_EDIT_CUT             "Вырезать выделенное и поместить на рабочий стол\nВырезать"
+    ID_EDIT_FIND            "Поиск указанного текста\nПоиск"
+    ID_EDIT_PASTE           "Вставить содержимое рабочего стола\nВставить"
+    ID_EDIT_REPEAT          "Повтор последнего действия\nПовтор"
+    ID_EDIT_REPLACE         "Замена указанного текста другим текстом\nЗамена"
+    ID_EDIT_SELECT_ALL      "Выделить весь документ\nВыделить Всё"
+    ID_EDIT_UNDO            "Отменить последнее действие\nОткат"
+    ID_EDIT_REDO            "Повтор предыдущего отменённого действия\nПовтор"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Показать или скрыть панель инструментов\nПоказать/скрыть панель инструментов"
+    ID_VIEW_STATUS_BAR      "Показать или скрыть строку состояния\nПоказать/скрыть строку состояния"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Изменить размер окна"
+    AFX_IDS_SCMOVE          "Изменить позицию окна"
+    AFX_IDS_SCMINIMIZE      "Уменьшить окно до размеров иконки"
+    AFX_IDS_SCMAXIMIZE      "Полноэкранный режим"
+    AFX_IDS_SCNEXTWINDOW    "Переключиться на следующее окно документа"
+    AFX_IDS_SCPREVWINDOW    "Перейти на предыдущее окно документа"
+    AFX_IDS_SCCLOSE         "Закрыть активное окно и предложить сохранить документы"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Восстановить нормальный размер окна"
+    AFX_IDS_SCTASKLIST      "Активировать список заданий"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Закрыть режим просмотра печати\nЗакрыть просмотр"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_OPTIONS              "Опции бегущей строки\nОпции бегущей строки"
+    ID_RUN_CREEPING_LINE    "Просмотр бегущей стоки\nПросмотр бегущей стоки"
+    ID_STOP_CREEPING_LINE   "Остановить просмотр бегущей строки\nОстановить просмотр бегущей строки"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROPSHT_CAPTION     "Страница свойств бегущей строки"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1251)
+#endif //_WIN32
+#include "res\CreepingLine.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreepingLine", "CreepingLine.vcxproj", "{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B6E73505-68BA-A837-CB08-D719EA294D5F} = {B6E73505-68BA-A837-CB08-D719EA294D5F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomResolution", "..\CustomResolution\CustomResolution.vcxproj", "{B6E73505-68BA-A837-CB08-D719EA294D5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Unicode Rus|Win32 = Debug Unicode Rus|Win32
+		Debug Unicode|Win32 = Debug Unicode|Win32
+		Debug|Win32 = Debug|Win32
+		Release Unicode Rus|Win32 = Release Unicode Rus|Win32
+		Release Unicode|Win32 = Release Unicode|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug Unicode Rus|Win32.ActiveCfg = Debug Unicode Rus|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug Unicode Rus|Win32.Build.0 = Debug Unicode Rus|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug Unicode|Win32.ActiveCfg = Debug Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug Unicode|Win32.Build.0 = Debug Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug|Win32.ActiveCfg = Debug Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Debug|Win32.Build.0 = Debug Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release Unicode Rus|Win32.ActiveCfg = Release Unicode Rus|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release Unicode Rus|Win32.Build.0 = Release Unicode Rus|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release Unicode|Win32.ActiveCfg = Release Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release Unicode|Win32.Build.0 = Release Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release|Win32.ActiveCfg = Release Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Release|Win32.Build.0 = Release Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Template|Win32.ActiveCfg = Release Unicode|Win32
+		{A5ECC7EF-ADD2-AE4A-A056-DD3D3129FE98}.Template|Win32.Build.0 = Release Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug Unicode Rus|Win32.ActiveCfg = Debug Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug Unicode Rus|Win32.Build.0 = Debug Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug Unicode|Win32.ActiveCfg = Debug Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug Unicode|Win32.Build.0 = Debug Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Debug|Win32.Build.0 = Debug|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release Unicode Rus|Win32.ActiveCfg = Release Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release Unicode Rus|Win32.Build.0 = Release Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release Unicode|Win32.ActiveCfg = Release Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release Unicode|Win32.Build.0 = Release Unicode|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release|Win32.ActiveCfg = Release|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Release|Win32.Build.0 = Release|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Template|Win32.ActiveCfg = Template|Win32
+		{B6E73505-68BA-A837-CB08-D719EA294D5F}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

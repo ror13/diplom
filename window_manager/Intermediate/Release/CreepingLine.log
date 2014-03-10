@@ -1,0 +1,569 @@
+﻿Сборка начата 09.03.2014 20:16:45.
+     1>Проект "E:\diplom\window_manager\CreepingLine\CreepingLine.vcxproj" в узле 2 (целевые объекты build).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+     1>InitializeBuildStatus:
+         Создание "..\Intermediate\Release\CreepingLine.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Libs/appweb /I../Libs/appweb/include /I../Inc /I../Libs /I../Presenter.Engine /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN /D WIN32 /D _WINDOWS /D UNICODE /D CREEPING_LINE_PRJ /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"..\Intermediate\Release\CreepingLine.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Libs/appweb /I../Libs/appweb/include /I../Inc /I../Libs /I../Presenter.Engine /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN /D WIN32 /D _WINDOWS /D UNICODE /D CREEPING_LINE_PRJ /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"..\Intermediate\Release\CreepingLine.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt BitmapBuf.cpp ..\Libs\CommandLineParser.cpp CreepingLine.cpp CreepingLineDoc.cpp CreepingLineView.cpp CreepingLineWnd.cpp html2txt.cpp LinePropertyPageFont.cpp LinePropertyPageGeneral.cpp LinePropertyPagePosition.cpp LinePropertyPageWindow.cpp LinePropertySheet.cpp ..\Libs\log.cpp MainFrm.cpp ..\Libs\MMTimer.cpp MyTracker.cpp rss.cpp ..\Libs\RunTests.cpp ..\Libs\Thread.cpp WindowPositionControl.cpp ..\Libs\BitmapEx.cpp ..\Libs\CLua.cpp ..\Libs\ColorBox.cpp ..\Libs\CreepingLineInfo.cpp ..\Libs\FileOperation.cpp ..\Libs\MakeWindowTransparent.cpp ..\Libs\MonCustomRes.cpp ..\Libs\MonResDatas.cpp ..\Libs\SerializeStruct.cpp ..\Libs\Translate.cpp ..\Libs\WebGrab.cpp
+         BitmapBuf.cpp
+         CommandLineParser.cpp
+         CreepingLine.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>CreepingLine.cpp(61): warning C4996: 'CWinApp::Enable3dControls': CWinApp::Enable3dControls is no longer needed. You should remove this call.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\atlmfc\include\afxwin.h(5344): см. объявление "CWinApp::Enable3dControls"
+         CreepingLineDoc.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         CreepingLineView.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         CreepingLineWnd.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>E:\diplom\window_manager\Libs\CImg.h(732): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(738): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(744): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(750): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(756): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(2988): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(325): см. объявление "sscanf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3055): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3075): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433): см. объявление "getenv"
+     1>E:\diplom\window_manager\Libs\CImg.h(3076): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3077): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3122): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3123): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3126): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3127): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3130): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3131): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3134): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3135): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3138): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3139): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3142): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3143): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3146): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3147): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3150): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3151): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3154): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3155): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3158): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3159): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3162): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3163): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3166): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3167): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3170): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3171): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3173): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3221): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3222): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3225): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3226): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3229): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3230): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3233): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3234): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3237): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3238): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3241): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3242): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3245): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3246): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3249): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3250): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3253): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3254): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3257): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3258): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3261): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3262): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3265): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3266): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3269): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3270): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3272): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3320): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3321): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3324): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3325): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3328): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3329): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3332): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3333): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3335): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3384): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3388): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433): см. объявление "getenv"
+     1>E:\diplom\window_manager\Libs\CImg.h(3389): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433): см. объявление "getenv"
+     1>E:\diplom\window_manager\Libs\CImg.h(3390): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3392): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3393): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3394): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3395): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3396): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3397): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3398): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3399): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3406): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3407): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3420): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(188): см. объявление "strncpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3421): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>E:\diplom\window_manager\Libs\CImg.h(3429): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3430): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3431): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3440): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>E:\diplom\window_manager\Libs\CImg.h(3578): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3599): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3609): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3742): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3754): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3766): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(3778): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>E:\diplom\window_manager\Libs\CImg.h(6336): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
+     1>CreepingLineWnd.cpp(111): warning C4996: '_wgetenv': This function or variable may be unsafe. Consider using _wdupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(879): см. объявление "_wgetenv"
+         html2txt.cpp
+         LinePropertyPageFont.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         LinePropertyPageGeneral.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         LinePropertyPagePosition.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         LinePropertyPageWindow.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         LinePropertySheet.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         log.cpp
+     1>..\Libs\log.cpp(16): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(815): см. объявление "_wfopen"
+         MainFrm.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         MMTimer.cpp
+         MyTracker.cpp
+     1>MyTracker.cpp(70): warning C4005: _countof: изменение макроопределения
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(344): см. предыдущее определение "_countof"
+         rss.cpp
+         RunTests.cpp
+         Thread.cpp
+     1>..\Libs\Thread.cpp(33): warning C4996: 'wcscpy': This function or variable may be unsafe. Consider using wcscpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(283): см. объявление "wcscpy"
+         WindowPositionControl.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         Создание кода...
+         Компиляция...
+         BitmapEx.cpp
+     1>..\Libs\BitmapEx.cpp(170): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(815): см. объявление "_wfopen"
+     1>..\Libs\BitmapEx.cpp(326): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(815): см. объявление "_wfopen"
+         CLua.cpp
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>..\Libs\CLua.cpp(144): warning C4996: '_i64toa': This function or variable may be unsafe. Consider using _i64toa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(453): см. объявление "_i64toa"
+         ColorBox.cpp
+         CreepingLineInfo.cpp
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>..\Libs\CreepingLineInfo.cpp(94): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(175): warning C4996: '_itow': This function or variable may be unsafe. Consider using _itow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(866): см. объявление "_itow"
+                 ..\Libs\CreepingLineInfo.cpp(118): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeInt<BOOL>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=BOOL
+                 ]
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(217): warning C4996: '_swprintf': This function or variable may be unsafe. Consider using _swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(761): см. объявление "_swprintf"
+                 ..\Libs\CreepingLineInfo.cpp(122): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeDouble<double>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=double
+                 ]
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(175): warning C4996: '_itow': This function or variable may be unsafe. Consider using _itow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(866): см. объявление "_itow"
+                 ..\Libs\CreepingLineInfo.cpp(125): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeInt<LONG>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=LONG
+                 ]
+     1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(238): warning C4996: '_ultow': This function or variable may be unsafe. Consider using _ultow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(872): см. объявление "_ultow"
+                 ..\Libs\CreepingLineInfo.cpp(139): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeHex<COLORREF>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=COLORREF
+                 ]
+         FileOperation.cpp
+         MakeWindowTransparent.cpp
+         MonCustomRes.cpp
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(175): warning C4996: '_itow': This function or variable may be unsafe. Consider using _itow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(866): см. объявление "_itow"
+                 ..\Libs\MonCustomRes.cpp(50): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeInt<int>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=int
+                 ]
+         MonResDatas.cpp
+     1>..\Libs\MonResDatas.cpp(49): warning C4018: <: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(65): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(73): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(81): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(89): warning C4018: <: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(104): warning C4018: <: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(126): warning C4018: <: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(142): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(150): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(172): warning C4018: <: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(188): warning C4018: >=: несоответствие типов со знаком и без знака
+     1>..\Libs\MonResDatas.cpp(196): warning C4018: >=: несоответствие типов со знаком и без знака
+         SerializeStruct.cpp
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         Translate.cpp
+         WebGrab.cpp
+     1>..\Libs\WebGrab.cpp(69): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(867): см. объявление "itoa"
+     1>..\Libs\WebGrab.cpp(481): warning C4996: 'vswprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\swprintf.inl(97): см. объявление "vswprintf"
+         Создание кода...
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Libs/appweb /I../Libs/appweb/include /I../Inc /I../Libs /I../Presenter.Engine /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN /D WIN32 /D _WINDOWS /D UNICODE /D CREEPING_LINE_PRJ /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TC /analyze- /errorReport:prompt ..\Libs\Lua\lauxlib.c ..\Libs\Lua\lbaselib.c ..\Libs\Lua\ldblib.c ..\Libs\Lua\liolib.c ..\Libs\Lua\lmathlib.c ..\Libs\Lua\loadlib.c ..\Libs\Lua\lstrlib.c ..\Libs\Lua\ltablib.c ..\Libs\Lua\lapi.c ..\Libs\Lua\lcode.c ..\Libs\Lua\ldebug.c ..\Libs\Lua\ldo.c ..\Libs\Lua\ldump.c ..\Libs\Lua\lfunc.c ..\Libs\Lua\lgc.c ..\Libs\Lua\linit.c ..\Libs\Lua\llex.c ..\Libs\Lua\lmem.c ..\Libs\Lua\lobject.c ..\Libs\Lua\lopcodes.c ..\Libs\Lua\loslib.c ..\Libs\Lua\lparser.c ..\Libs\Lua\lstate.c ..\Libs\Lua\lstring.c ..\Libs\Lua\ltable.c ..\Libs\Lua\ltm.c ..\Libs\Lua\luac.c ..\Libs\Lua\lundump.c ..\Libs\Lua\lvm.c ..\Libs\Lua\lzio.c ..\Libs\Lua\print.c ..\Libs\md5.c
+         lauxlib.c
+     1>..\Libs\Lua\lauxlib.c(480): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\Libs\Lua\lauxlib.c(497): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>..\Libs\Lua\lauxlib.c(503): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+         lbaselib.c
+     1>..\Libs\Lua\lbaselib.c(343): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lbaselib.c(346): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lbaselib.c(350): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lbaselib.c(353): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lbaselib.c(422): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433): см. объявление "getenv"
+         ldblib.c
+         liolib.c
+     1>..\Libs\Lua\liolib.c(80): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\Libs\Lua\liolib.c(82): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\Libs\Lua\liolib.c(181): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\liolib.c(183): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\liolib.c(193): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>..\Libs\Lua\liolib.c(214): warning C4996: 'tmpfile': This function or variable may be unsafe. Consider using tmpfile_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(338): см. объявление "tmpfile"
+     1>..\Libs\Lua\liolib.c(232): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>..\Libs\Lua\liolib.c(234): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\Libs\Lua\liolib.c(289): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+     1>..\Libs\Lua\liolib.c(290): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(157): см. объявление "strerror"
+     1>..\Libs\Lua\liolib.c(306): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(253): см. объявление "fscanf"
+     1>..\Libs\Lua\liolib.c(564): warning C4996: 'tmpnam': This function or variable may be unsafe. Consider using tmpnam_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(344): см. объявление "tmpnam"
+     1>..\Libs\Lua\liolib.c(573): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdlib.h(433): см. объявление "getenv"
+     1>..\Libs\Lua\liolib.c(637): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.inl(99): см. объявление "gmtime"
+     1>..\Libs\Lua\liolib.c(641): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.inl(112): см. объявление "localtime"
+     1>..\Libs\Lua\liolib.c(669): warning C4244: функция: преобразование "time_t" в "lua_Number", возможна потеря данных
+     1>..\Libs\Lua\liolib.c(686): warning C4244: функция: преобразование "time_t" в "lua_Number", возможна потеря данных
+         lmathlib.c
+         loadlib.c
+     1>..\Libs\Lua\loadlib.c(100): warning C4133: функция: несовместимые типы - из "char [128]" в "LPWSTR"
+     1>..\Libs\Lua\loadlib.c(110): warning C4133: функция: несовместимые типы - из "const char *" в "LPCWSTR"
+         lstrlib.c
+     1>..\Libs\Lua\lstrlib.c(675): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(188): см. объявление "strncpy"
+     1>..\Libs\Lua\lstrlib.c(703): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lstrlib.c(707): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lstrlib.c(712): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+     1>..\Libs\Lua\lstrlib.c(730): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+         ltablib.c
+         lapi.c
+         lcode.c
+         ldebug.c
+         ldo.c
+         ldump.c
+         lfunc.c
+         lgc.c
+         linit.c
+         llex.c
+         lmem.c
+         lobject.c
+     1>..\Libs\Lua\lobject.c(165): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(188): см. объявление "strncpy"
+     1>..\Libs\Lua\lobject.c(174): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(177): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(179): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(185): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(187): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(175): см. объявление "strncat"
+     1>..\Libs\Lua\lobject.c(188): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(191): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>..\Libs\Lua\lobject.c(192): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         lopcodes.c
+         Создание кода...
+         Компиляция...
+         loslib.c
+         lparser.c
+         lstate.c
+         lstring.c
+         ltable.c
+         ltm.c
+         luac.c
+     1>..\Libs\Lua\luac.c(182): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234): см. объявление "fopen"
+         lundump.c
+         lvm.c
+     1>..\Libs\Lua\lvm.c(60): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
+         lzio.c
+         print.c
+         md5.c
+         Создание кода...
+       ResourceCompile:
+         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /nologo /fo"..\Intermediate\Release\CreepingLine.res" CreepingLine.rc 
+       Link:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Binaries\Release\CreepingLine.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\Binaries\Release CustomResolution.lib /MANIFEST /ManifestFile:"..\Intermediate\Release\CreepingLine.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"E:\diplom\window_manager\Binaries\Release\CreepingLine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Binaries\Release\CreepingLine.lib" /MACHINE:X86 ..\Intermediate\Release\CreepingLine.res
+         ..\Intermediate\Release\BitmapBuf.obj
+         ..\Intermediate\Release\CommandLineParser.obj
+         ..\Intermediate\Release\CreepingLine.obj
+         ..\Intermediate\Release\CreepingLineDoc.obj
+         ..\Intermediate\Release\CreepingLineView.obj
+         ..\Intermediate\Release\CreepingLineWnd.obj
+         ..\Intermediate\Release\html2txt.obj
+         ..\Intermediate\Release\LinePropertyPageFont.obj
+         ..\Intermediate\Release\LinePropertyPageGeneral.obj
+         ..\Intermediate\Release\LinePropertyPagePosition.obj
+         ..\Intermediate\Release\LinePropertyPageWindow.obj
+         ..\Intermediate\Release\LinePropertySheet.obj
+         ..\Intermediate\Release\log.obj
+         ..\Intermediate\Release\MainFrm.obj
+         ..\Intermediate\Release\MMTimer.obj
+         ..\Intermediate\Release\MyTracker.obj
+         ..\Intermediate\Release\rss.obj
+         ..\Intermediate\Release\RunTests.obj
+         ..\Intermediate\Release\StdAfx.obj
+         ..\Intermediate\Release\Thread.obj
+         ..\Intermediate\Release\WindowPositionControl.obj
+         ..\Intermediate\Release\lauxlib.obj
+         ..\Intermediate\Release\lbaselib.obj
+         ..\Intermediate\Release\ldblib.obj
+         ..\Intermediate\Release\liolib.obj
+         ..\Intermediate\Release\lmathlib.obj
+         ..\Intermediate\Release\loadlib.obj
+         ..\Intermediate\Release\lstrlib.obj
+         ..\Intermediate\Release\ltablib.obj
+         ..\Intermediate\Release\lapi.obj
+         ..\Intermediate\Release\lcode.obj
+         ..\Intermediate\Release\ldebug.obj
+         ..\Intermediate\Release\ldo.obj
+         ..\Intermediate\Release\ldump.obj
+         ..\Intermediate\Release\lfunc.obj
+         ..\Intermediate\Release\lgc.obj
+         ..\Intermediate\Release\linit.obj
+         ..\Intermediate\Release\llex.obj
+         ..\Intermediate\Release\lmem.obj
+         ..\Intermediate\Release\lobject.obj
+         ..\Intermediate\Release\lopcodes.obj
+         ..\Intermediate\Release\loslib.obj
+         ..\Intermediate\Release\lparser.obj
+         ..\Intermediate\Release\lstate.obj
+         ..\Intermediate\Release\lstring.obj
+         ..\Intermediate\Release\ltable.obj
+         ..\Intermediate\Release\ltm.obj
+         ..\Intermediate\Release\luac.obj
+         ..\Intermediate\Release\lundump.obj
+         ..\Intermediate\Release\lvm.obj
+         ..\Intermediate\Release\lzio.obj
+         ..\Intermediate\Release\print.obj
+         ..\Intermediate\Release\BitmapEx.obj
+         ..\Intermediate\Release\CLua.obj
+         ..\Intermediate\Release\ColorBox.obj
+         ..\Intermediate\Release\CreepingLineInfo.obj
+         ..\Intermediate\Release\FileOperation.obj
+         ..\Intermediate\Release\MakeWindowTransparent.obj
+         ..\Intermediate\Release\md5.obj
+         ..\Intermediate\Release\MonCustomRes.obj
+         ..\Intermediate\Release\MonResDatas.obj
+         ..\Intermediate\Release\SerializeStruct.obj
+         ..\Intermediate\Release\Translate.obj
+         ..\Intermediate\Release\WebGrab.obj
+         CreepingLine.vcxproj -> E:\diplom\window_manager\CreepingLine\..\Binaries\Release\CreepingLine.exe
+       Manifest:
+         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\Binaries\Release\CreepingLine.exe;#1" /manifest ..\Intermediate\Release\CreepingLine.exe.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       MakeDirsForBscMake:
+         Создание каталога "E:\diplom\window_manager\~Binaries\ReleaseLib\".
+       BscMake:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\~Binaries\ReleaseLib\CreepingLine.bsc" ..\Intermediate\Release\BitmapBuf.sbr ..\Intermediate\Release\CommandLineParser.sbr ..\Intermediate\Release\CreepingLine.sbr ..\Intermediate\Release\CreepingLineDoc.sbr ..\Intermediate\Release\CreepingLineView.sbr ..\Intermediate\Release\CreepingLineWnd.sbr ..\Intermediate\Release\html2txt.sbr ..\Intermediate\Release\LinePropertyPageFont.sbr ..\Intermediate\Release\LinePropertyPageGeneral.sbr ..\Intermediate\Release\LinePropertyPagePosition.sbr ..\Intermediate\Release\LinePropertyPageWindow.sbr ..\Intermediate\Release\LinePropertySheet.sbr ..\Intermediate\Release\log.sbr ..\Intermediate\Release\MainFrm.sbr ..\Intermediate\Release\MMTimer.sbr ..\Intermediate\Release\MyTracker.sbr ..\Intermediate\Release\rss.sbr ..\Intermediate\Release\RunTests.sbr ..\Intermediate\Release\StdAfx.sbr ..\Intermediate\Release\Thread.sbr ..\Intermediate\Release\WindowPositionControl.sbr ..\Intermediate\Release\lauxlib.sbr ..\Intermediate\Release\lbaselib.sbr ..\Intermediate\Release\ldblib.sbr ..\Intermediate\Release\liolib.sbr ..\Intermediate\Release\lmathlib.sbr ..\Intermediate\Release\loadlib.sbr ..\Intermediate\Release\lstrlib.sbr ..\Intermediate\Release\ltablib.sbr ..\Intermediate\Release\lapi.sbr ..\Intermediate\Release\lcode.sbr ..\Intermediate\Release\ldebug.sbr ..\Intermediate\Release\ldo.sbr ..\Intermediate\Release\ldump.sbr ..\Intermediate\Release\lfunc.sbr ..\Intermediate\Release\lgc.sbr ..\Intermediate\Release\linit.sbr ..\Intermediate\Release\llex.sbr ..\Intermediate\Release\lmem.sbr ..\Intermediate\Release\lobject.sbr ..\Intermediate\Release\lopcodes.sbr ..\Intermediate\Release\loslib.sbr ..\Intermediate\Release\lparser.sbr ..\Intermediate\Release\lstate.sbr ..\Intermediate\Release\lstring.sbr ..\Intermediate\Release\ltable.sbr ..\Intermediate\Release\ltm.sbr ..\Intermediate\Release\luac.sbr ..\Intermediate\Release\lundump.sbr ..\Intermediate\Release\lvm.sbr ..\Intermediate\Release\lzio.sbr ..\Intermediate\Release\print.sbr ..\Intermediate\Release\BitmapEx.sbr ..\Intermediate\Release\CLua.sbr ..\Intermediate\Release\ColorBox.sbr ..\Intermediate\Release\CreepingLineInfo.sbr ..\Intermediate\Release\FileOperation.sbr ..\Intermediate\Release\MakeWindowTransparent.sbr ..\Intermediate\Release\md5.sbr ..\Intermediate\Release\MonCustomRes.sbr ..\Intermediate\Release\MonResDatas.sbr ..\Intermediate\Release\SerializeStruct.sbr ..\Intermediate\Release\Translate.sbr ..\Intermediate\Release\WebGrab.sbr
+       FinalizeBuildStatus:
+         Файл "..\Intermediate\Release\CreepingLine.unsuccessfulbuild" удаляется.
+         Обращение к "..\Intermediate\Release\CreepingLine.lastbuildstate".
+     1>Построение проекта "E:\diplom\window_manager\CreepingLine\CreepingLine.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:14.42

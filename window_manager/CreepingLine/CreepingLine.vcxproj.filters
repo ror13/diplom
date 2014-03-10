@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8cf6f0f2-e216-4d54-965e-4e47d3ba6f65}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9439063c-c923-4056-9b68-8aca78eac4cd}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{0be2de96-5d37-45c2-a41f-9eef609a0b25}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Other">
+      <UniqueIdentifier>{8571cfab-abad-47c8-9f45-183ee3edf142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs">
+      <UniqueIdentifier>{042d5fac-d4b6-41a2-ac55-117e8cc13709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs\Lua">
+      <UniqueIdentifier>{c2fab7b8-9236-4847-aecb-bf173b70215a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs\Lua\lib">
+      <UniqueIdentifier>{3393080f-cc56-4a25-bbef-dd54fb6ed436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inc">
+      <UniqueIdentifier>{24a72148-8650-47b3-a17f-a19f53616446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter">
+      <UniqueIdentifier>{e6e5d9ef-fc59-419a-8927-3192b4e0dab2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConfigurationWizard">
+      <UniqueIdentifier>{f07eab2d-02c3-41b8-8d66-13de1268cbbb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BitmapBuf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\CommandLineParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreepingLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreepingLineDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreepingLineView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreepingLineWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="html2txt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePropertyPageFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePropertyPageGeneral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePropertyPagePosition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePropertyPageWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinePropertySheet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\MMTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rss.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\RunTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowPositionControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lauxlib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lbaselib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ldblib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\liolib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lmathlib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\loadlib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lstrlib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ltablib.c">
+      <Filter>Libs\Lua\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lapi.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lcode.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ldebug.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ldo.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ldump.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lfunc.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lgc.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\linit.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\llex.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lmem.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lobject.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lopcodes.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\loslib.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lparser.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lstate.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lstring.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ltable.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\ltm.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\luac.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lundump.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lvm.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\lzio.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Lua\print.c">
+      <Filter>Libs\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\BitmapEx.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\CLua.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\ColorBox.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\CreepingLineInfo.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\FileOperation.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\MakeWindowTransparent.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\md5.c">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\MonCustomRes.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\MonResDatas.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\SerializeStruct.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\Translate.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Libs\WebGrab.cpp">
+      <Filter>Libs</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BitmapBuf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\CommandLineParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CreepingLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CreepingLineDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CreepingLineView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CreepingLineWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="html2txt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePropertyPageFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePropertyPageGeneral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePropertyPagePosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePropertyPageWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinePropertySheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\MMTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowPositionControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lapi.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lauxlib.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lcode.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\ldebug.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\ldo.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lfunc.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lgc.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\llex.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\llimits.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lmem.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lobject.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lopcodes.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lparser.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lstate.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lstring.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\ltable.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\ltm.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lua.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lualib.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lundump.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lvm.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Lua\lzio.h">
+      <Filter>Libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\BitmapEx.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\ColorBox.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\CreepingLineInfo.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\FileOperation.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\MakeWindowTransparent.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\md5.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\MonCustomRes.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\MonResDatas.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\SerializeStruct.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\Translate.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libs\WebGrab.h">
+      <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Inc\CommonApi.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Presenter\PresenterRegistry.h">
+      <Filter>Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ConfigurationWizard\ConfigurationWizardExt.h">
+      <Filter>ConfigurationWizard</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CreepingLine-eng.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="CreepingLine-rus.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="CreepingLine.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\CreepingLine.ico">
+      <Filter>Resource Files\Other</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\CreepingLine.rc2">
+      <Filter>Resource Files\Other</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\CreepingLineDoc.ico">
+      <Filter>Resource Files\Other</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\Toolbar.bmp">
+      <Filter>Resource Files\Other</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CreepingLine.reg" />
+  </ItemGroup>
+</Project>

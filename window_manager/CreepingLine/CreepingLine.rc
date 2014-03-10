@@ -1,0 +1,6 @@
+#ifdef LANG_INTERFACE_RUS
+#pragma code_page(1251)
+#include "CreepingLine-rus.rc"
+#else
+#include "CreepingLine-eng.rc"
+#endif

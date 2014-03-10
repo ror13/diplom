@@ -1,0 +1,64 @@
+﻿Сборка начата 09.03.2014 20:16:37.
+     1>Проект "E:\diplom\window_manager\CustomResolution\CustomResolution.vcxproj" в узле 2 (целевые объекты build).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
+         Создание каталога "..\Binaries\Release\".
+     1>InitializeBuildStatus:
+         Создание "..\Intermediate\Release\CustomResolution.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Presenter /I../Libs /I../Inc /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D UNICODE /D WIN32 /D NDEBUG /D _WINDOWS /D _WINDLL /D _MBCS /D _USRDLL /D COMPILE_DL_PRESENTER /D PRESENTER_NO_PHP /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"..\Intermediate\Release\CustomResolution.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Presenter /I../Libs /I../Inc /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D UNICODE /D WIN32 /D NDEBUG /D _WINDOWS /D _WINDLL /D _MBCS /D _USRDLL /D COMPILE_DL_PRESENTER /D PRESENTER_NO_PHP /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"..\Intermediate\Release\CustomResolution.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt CustomResolution.cpp CustomResolutionDialog.cpp ..\Libs\FileOperation.cpp MonCustomRes.cpp ..\Libs\SerializeStruct.cpp
+         CustomResolution.cpp
+         CustomResolutionDialog.cpp
+     1>E:\diplom\window_manager\Libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>E:\diplom\window_manager\Libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         FileOperation.cpp
+         MonCustomRes.cpp
+     1>E:\diplom\window_manager\Libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>E:\diplom\window_manager\Libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+     1>E:\diplom\window_manager\Libs\SerializeStruct.h(175): warning C4996: '_itow': This function or variable may be unsafe. Consider using _itow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(866): см. объявление "_itow"
+                 MonCustomRes.cpp(50): см. ссылку на создание экземпляров функции шаблон при компиляции "BOOL CSerializeStruct::SerializeInt<int>(CSerializeStruct::SERIALIZE_CONTEXT &,TYPE &,LPCTSTR,TYPE *)"
+                 with
+                 [
+                     TYPE=int
+                 ]
+         SerializeStruct.cpp
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(306): см. объявление "wcsncpy"
+     1>e:\diplom\window_manager\libs\SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
+         Создание кода...
+       ResourceCompile:
+         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /nologo /fo"..\Intermediate\Release\CustomResolution.res" CustomResolution.rc 
+       Link:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Binaries\Release\CustomResolution.dll" /INCREMENTAL:NO /NOLOGO /DEF:".\CustomResolution.def" /MANIFEST /ManifestFile:"..\Intermediate\Release\CustomResolution.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"E:\diplom\window_manager\Binaries\Release\CustomResolution.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Binaries\Release\CustomResolution.lib" /MACHINE:X86 /DLL ..\Intermediate\Release\CustomResolution.res
+         ..\Intermediate\Release\CustomResolution.obj
+         ..\Intermediate\Release\CustomResolutionDialog.obj
+         ..\Intermediate\Release\FileOperation.obj
+         ..\Intermediate\Release\MonCustomRes.obj
+         ..\Intermediate\Release\SerializeStruct.obj
+         ..\Intermediate\Release\StdAfx.obj
+     1>.\CustomResolution.def(4): warning LNK4017: оператор DESCRIPTION не поддерживается на конечной платформе; пропущен
+            Создается библиотека ..\Binaries\Release\CustomResolution.lib и объект ..\Binaries\Release\CustomResolution.exp
+         CustomResolution.vcxproj -> E:\diplom\window_manager\CustomResolution\..\Binaries\Release\CustomResolution.dll
+       Manifest:
+         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\Binaries\Release\CustomResolution.dll;#2" /manifest ..\Intermediate\Release\CustomResolution.dll.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       MakeDirsForBscMake:
+         Создание каталога "E:\diplom\window_manager\~Binaries\~Release Unicode\".
+       BscMake:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\~Binaries\~Release Unicode\CustomResolution.bsc" ..\Intermediate\Release\CustomResolution.sbr ..\Intermediate\Release\CustomResolutionDialog.sbr ..\Intermediate\Release\FileOperation.sbr ..\Intermediate\Release\MonCustomRes.sbr ..\Intermediate\Release\SerializeStruct.sbr ..\Intermediate\Release\StdAfx.sbr
+       FinalizeBuildStatus:
+         Файл "..\Intermediate\Release\CustomResolution.unsuccessfulbuild" удаляется.
+         Обращение к "..\Intermediate\Release\CustomResolution.lastbuildstate".
+     1>Построение проекта "E:\diplom\window_manager\CustomResolution\CustomResolution.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:08.22

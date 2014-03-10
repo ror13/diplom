@@ -1,0 +1,84 @@
+//
+// HTTP_SRV.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+	#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DEFAULTDOC          "default.html\ndefault.htm\nindex.html\nindex.htm"
+    IDS_DEFAULTAPP          "default.lua\nindex.lua"
+	IDS_APP_CGI             "bat\nexe"
+	IDS_APP_ISAPI           "dll"
+	IDS_APP_LUA             "lua"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STATUS_OK           "200 OK"
+    IDS_STATUS_CREATED      "201 Created"
+    IDS_STATUS_ACCEPTED     "202 Accepted"
+    IDS_STATUS_NOCONTENT    "204 No Content"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STATUS_MOVEDPERM    "301 Moved Permanently"
+    IDS_STATUS_MOVEDTEMP    "302 Redirection"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STATUS_NOTMODIFIED  "304 Not Modified"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STATUS_BADREQUEST   "400 Bad Request"
+    IDS_STATUS_UNAUTH       "401 Unauthorized"
+    IDS_STATUS_FORBIDDEN    "403 Forbidden"
+    IDS_STATUS_NOTFOUND     "404 Not Found"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STATUS_SVRERROR     "500 Internal Server Error"
+    IDS_STATUS_NOTIMPL      "501 Not Implemented"
+    IDS_STATUS_BADGATEWAY   "502 Bad Gateway"
+    IDS_STATUS_SVCUNAVAIL   "503 Service Unavailable"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CONTENTS_PRE        "<html><h1>"
+    IDS_CONTENTS_POST       "</h1><p>\n"
+    IDS_CONTENTS_HEADING    "<pre> Last Modified       Size %sName\n<hr>\n"
+    IDS_CONTENTS_FORMAT     " %-15s %s <a href=""%s"">%s%-1s</a>\n"
+    IDS_CONTENTS_DESC       "The URL specified is a folder that does not contain a default document or application. The following is a listing of what documents and subfolders it does have; please select one:<p>\n"
+    IDS_CONTENTS_PARENT     "<hr><h3><a href=""."">%s Parent Folder</a></h3>\n"
+    IDS_CONTENTS_EMPTY      "<strong>empty</strong>\n"
+    IDS_CONTENTS_NOTE       "<hr><em>Do your part to beautify the web! Turn <strong>off</strong> link underlining!</em>\n"
+    IDS_CONTENTS_FOOTER     "</pre>\n"
+    IDS_ICON_BLANK          "<img src=""/SvrAdmin/Blank.gif"" align=bottom alt=""     "" border=0 width=16 height=16>"
+    IDS_ICON_FILE           "<img src=""/SvrAdmin/File.gif"" align=bottom alt=""     "" border=0 width=16 height=16>"
+    IDS_ICON_FOLDER         "<img src=""/SvrAdmin/Folder.gif"" align=bottom alt=""     "" border=0 width=16 height=16>"
+    IDS_ICON_PARENT         "<img src=""/SvrAdmin/Prev.gif"" align=bottom alt=""     "" border=0 width=16 height=16>"
+    IDS_SERVER_NAME         PRODUCT_NAME"-HTTP-SRV/1.0"
+    IDS_DIRMASK             "*.*"
+    IDS_FILETIMEFMT         "%m/%d/%y %H:%M"
+    IDS_HTTPTIME            "%a, %d %b %Y %H:%M:%S GMT"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+
