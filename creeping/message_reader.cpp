@@ -1,19 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <curl/curl.h>
-#include <curl/easy.h>
+#include <fstream>
 
 #include "utf8cpp/utf8.h"
 #include "message_reader.h"
-
+#include "utils.h"
 
 #define MAX_TEXT_LENGTH 10
 
-size_t write_data(void *ptr, size_t size, size_t nmemb, std::string * text) {
-    text->append((const char*)ptr, size * nmemb);
-    return nmemb;
-}
+
 
 void MessageReader::
 make(char * msg, bool isRss, std::vector<std::string> * ret_text, std::string * ret_logo)
@@ -23,14 +18,7 @@ make(char * msg, bool isRss, std::vector<std::string> * ret_text, std::string * 
 	std::string text;
 	if(isRss)
 	{
-		CURL * curl = curl_easy_init();
-		if (curl) {
-			curl_easy_setopt(curl, CURLOPT_URL, msg);
-			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &text);
-			curl_easy_perform(curl);
-			curl_easy_cleanup(curl);
-		}
+		utils_net_dowmload_data(msg,&text);
 		if(text.empty())
 			text = "can't download rss";
 		else
@@ -144,24 +132,26 @@ rss_to_text(std::string * msg, std::string * logo)
 				   );
 	}
 	
-	std::string logo_file_name, url_logo;
+	std::string path_to_logo, url_logo;
 	get_element(msg, &url_logo, "url", 0);
 	
 	if(!url_logo.empty())
 	{
-		 std::size_t i = 0;
-		 for(pos = 0; i < url_logo.length(); i++)
+		std::size_t i = 0;
+		std::string logo_file_name, buff;;
+		for(pos = 0; i < url_logo.length(); i++)
 			logo_file_name += url_logo[i] != '/' ? url_logo[i] : '_';
-		 logo_file_name = "/tmp/" + logo_file_name;
-		 std::string cmd("wget -O \"");
-		 cmd += logo_file_name;
-		 cmd += "\" \"" + url_logo + "\"";
-		 
-		 system(cmd.c_str());
+		utils_make_tmp_file_path(&path_to_logo,logo_file_name.c_str());
+		utils_net_dowmload_data(url_logo.c_str(),&buff);
+		std::ofstream f;
+		f.open (path_to_logo.c_str(), std::ofstream::out);
+		f.write(buff.c_str(),buff.capacity());
+		f.close();
+		printf("### %s\n",path_to_logo.c_str());
 	}
 	
 	msg->assign(ret_text);
-	logo->assign(logo_file_name);
+	logo->assign(path_to_logo);
 	
 }
 
