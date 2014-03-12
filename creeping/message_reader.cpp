@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <fstream>
 
 #include "utf8cpp/utf8.h"
@@ -42,31 +43,6 @@ make(char * msg, bool isRss, std::vector<std::string> * ret_text, std::string * 
 }
 
 
-std::size_t MessageReader::
-get_element(std::string * msg, std::string * ret, const char * item, std::size_t start_pos)
-{
-	std::string key_item = "<>";
-	std::string key_itemend = "</>";
-	key_item.insert(1,item);
-	key_itemend.insert(2,item);
-	std::size_t found_key_item = start_pos;
-	std::size_t found_key_itemend = start_pos;
-	found_key_item = msg->find(key_item,found_key_itemend);
-	found_key_itemend = msg->find(key_itemend,found_key_item);
-	
-	if(found_key_item != std::string::npos)
-	{
-		ret->assign( msg->substr(found_key_item + key_item.length(), 
-								found_key_itemend - (found_key_item + key_item.length()))
-				);
-		found_key_itemend += key_itemend.length();
-	}	
-	
-	return found_key_itemend;
-		
-
-	
-}
 
 void MessageReader::
 del_html_tags(std::string * msg)
@@ -94,28 +70,63 @@ del_html_tags(std::string * msg)
 }
 
 void MessageReader::
+parse_rss_items(xmlNode * item_node, std::string * text, std::string * url)
+{
+	xmlNode *cur_node = NULL;
+	for (cur_node = item_node; cur_node; cur_node = cur_node->next)
+	{
+		
+		if (cur_node->type != XML_ELEMENT_NODE)
+			continue;
+		if (strcmp((char *)cur_node->name, "url") == 0)
+		{
+			*url = (char *)xmlNodeGetContent(cur_node);
+			continue;
+		}
+		if (strcmp((char *)cur_node->name, "item") != 0)
+		{
+			parse_rss_items(cur_node->children, text, url);
+			continue;
+		}
+		xmlNode *cur_child_node = NULL;
+		std::string title,description;
+		for (cur_child_node = cur_node->children; cur_child_node; cur_child_node = cur_child_node->next) 
+		{
+			if (cur_child_node->type != XML_ELEMENT_NODE)
+				continue;
+			if (!strcmp((char *)cur_child_node->name, "title")) 
+				title = (char *)xmlNodeGetContent(cur_child_node);
+			if (!strcmp((char *)cur_child_node->name, "description"))
+				description = (char *)xmlNodeGetContent(cur_child_node);
+			
+		}
+		*text += title + " ";
+		*text += description + " ";
+    }
+}
+
+void MessageReader::
 rss_to_text(std::string * msg, std::string * logo)
 {
-	std::string ret_text;
-	std::size_t pos = 0;
-	while(pos != std::string::npos)
-	{
-		std::string item, title, description;
-		pos = get_element(msg, &item, "item", pos);
-		get_element(&item, &title, "title", 0);
-		get_element(&item, &description, "description", 0);
-		ret_text += title + " " + description;
-		ret_text += " ";
-	}
+	std::string ret_text, path_to_logo, url_logo;;
+	del_html_tags(msg);
+
+	xmlDoc *doc = NULL;
+	xmlNode *root_element = NULL;
+	LIBXML_TEST_VERSION
+	doc = xmlParseMemory(msg->c_str(), msg->capacity());
+	root_element = xmlDocGetRootElement(doc);
+	parse_rss_items(root_element, &ret_text, &url_logo);
+	xmlFreeDoc(doc);
+	xmlCleanupParser();
+
 	
-	del_html_tags(&ret_text);
-	pos = 0;
+	std::size_t pos = 0;
 	while (pos != std::string::npos)
 	{
 		pos=ret_text.find_first_of("\t\r\n\0",pos+1);
 		ret_text[pos]=' ';
 	}
-	
 	
 	std::string key_space = "  ";
 	std::size_t found_key_space = 0;
@@ -132,22 +143,15 @@ rss_to_text(std::string * msg, std::string * logo)
 				   );
 	}
 	
-	std::string path_to_logo, url_logo;
-	get_element(msg, &url_logo, "url", 0);
 	
 	if(!url_logo.empty())
 	{
 		std::size_t i = 0;
-		std::string logo_file_name, buff;;
+		std::string logo_file_name;
 		for(pos = 0; i < url_logo.length(); i++)
 			logo_file_name += url_logo[i] != '/' ? url_logo[i] : '_';
 		utils_make_tmp_file_path(&path_to_logo,logo_file_name.c_str());
-		utils_net_dowmload_data(url_logo.c_str(),&buff);
-		std::ofstream f;
-		f.open (path_to_logo.c_str(), std::ofstream::out);
-		f.write(buff.c_str(),buff.capacity());
-		f.close();
-		printf("### %s\n",path_to_logo.c_str());
+		utils_net_dowmload_file(url_logo.c_str(), path_to_logo.c_str());
 	}
 	
 	msg->assign(ret_text);

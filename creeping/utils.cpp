@@ -27,6 +27,7 @@ utils_make_tmp_file_path(std::string * ret, const char * filename)
 	
 	if(filename != NULL)
 		*ret += filename;
+
 }
 
 void
@@ -87,4 +88,19 @@ void utils_net_dowmload_data(const char * url, std::string * data)
 		curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 	}
+}
+
+void utils_net_dowmload_file(const char * url, const char * path)
+{
+	CURL *curl = curl_easy_init();                                                                                                                                                                                                                                                           
+	if (curl)
+	{   
+		FILE * fp = fopen(path,"wb");
+		curl_easy_setopt(curl, CURLOPT_URL, url);
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+		curl_easy_perform(curl);
+		curl_easy_cleanup(curl);
+		fclose(fp);
+	}   
 }
