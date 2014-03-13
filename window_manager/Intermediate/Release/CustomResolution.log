@@ -1,8 +1,7 @@
-﻿Сборка начата 09.03.2014 20:16:37.
+﻿Сборка начата 13.03.2014 4:19:54.
      1>Проект "E:\diplom\window_manager\CustomResolution\CustomResolution.vcxproj" в узле 2 (целевые объекты build).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
-         Создание каталога "..\Binaries\Release\".
      1>InitializeBuildStatus:
          Создание "..\Intermediate\Release\CustomResolution.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
@@ -50,8 +49,6 @@
          CustomResolution.vcxproj -> E:\diplom\window_manager\CustomResolution\..\Binaries\Release\CustomResolution.dll
        Manifest:
          c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\Binaries\Release\CustomResolution.dll;#2" /manifest ..\Intermediate\Release\CustomResolution.dll.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
-       MakeDirsForBscMake:
-         Создание каталога "E:\diplom\window_manager\~Binaries\~Release Unicode\".
        BscMake:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\~Binaries\~Release Unicode\CustomResolution.bsc" ..\Intermediate\Release\CustomResolution.sbr ..\Intermediate\Release\CustomResolutionDialog.sbr ..\Intermediate\Release\FileOperation.sbr ..\Intermediate\Release\MonCustomRes.sbr ..\Intermediate\Release\SerializeStruct.sbr ..\Intermediate\Release\StdAfx.sbr
        FinalizeBuildStatus:
@@ -61,4 +58,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:08.22
+Затраченное время: 00:00:06.74

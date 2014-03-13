@@ -1,6 +1,6 @@
 // CreepingLineWnd.cpp : implementation file
 //
-
+#include "winsock2.h"
 #include "stdafx.h"
 #include "CreepingLineWnd.h"
 #include "../Libs/MakeWindowTransparent.h"
@@ -40,7 +40,7 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // CCreepingLineWnd
-
+/*
 CCreepingLineWnd::CCreepingLineWnd()
 {
 	m_bDragging = FALSE;
@@ -802,32 +802,45 @@ BOOL CCreepingLineMainThread::InitInstance()
 	
 	return TRUE;
 }
-
+*/
 //////////////////////////////////////////////////////////////////////////
 // CCreepingLineViewer
 
 CCreepingLineViewer::CCreepingLineViewer()
 {
-	m_pCreepingLineMainThread = NULL;
+	m_hPingServer = CreateThread(NULL, 0, &CCreepingLineViewer::ping_server,
+                    NULL, 0, &m_dwPingServer);
+	if(m_hPingServer == NULL)
+		MessageBox(NULL, L"cant start ping server", L"Error", 0);
+
+	m_hCommandServer = CreateThread(NULL, 0, &CCreepingLineViewer::command_server,
+                    this, 0, &m_dwCommandServer);
+	if(m_hCommandServer == NULL)
+		MessageBox(NULL, L"cant start command server", L"Error", 0);
+	//m_pCreepingLineMainThread = NULL;
 }
 
 CCreepingLineViewer::~CCreepingLineViewer()
 {
+	if(m_hPingServer != NULL)
+		CloseHandle(m_hPingServer);
+	if(m_hCommandServer != NULL)
+		CloseHandle(m_hCommandServer);
 	StopCreepingLine();
 }
 
 BOOL CCreepingLineViewer::IsPlay()
 {
-	if(m_pCreepingLineMainThread != NULL)
+	//if(m_pCreepingLineMainThread != NULL)
 	{
 		DWORD ExitCode = 0;
-		GetExitCodeThread(*m_pCreepingLineMainThread, &ExitCode);
+		//GetExitCodeThread(*m_pCreepingLineMainThread, &ExitCode);
 		if(ExitCode == STILL_ACTIVE)
 			return TRUE;
 		else
 		{
-			delete m_pCreepingLineMainThread;
-			m_pCreepingLineMainThread = NULL;
+			//delete m_pCreepingLineMainThread;
+			//m_pCreepingLineMainThread = NULL;
 		}
 	}
 	return FALSE;
@@ -838,47 +851,169 @@ BOOL CCreepingLineViewer::BeginCreepingLine(CCreepingLineInfo Line, BOOL bMakeTo
 {
 	StopCreepingLine();
 
-	m_pCreepingLineMainThread = (CCreepingLineMainThread*)AfxBeginThread(
-		RUNTIME_CLASS(CCreepingLineMainThread), THREAD_PRIORITY_TIME_CRITICAL,
-		0, CREATE_SUSPENDED);
+	//m_pCreepingLineMainThread = (CCreepingLineMainThread*)AfxBeginThread(
+	//	RUNTIME_CLASS(CCreepingLineMainThread), THREAD_PRIORITY_TIME_CRITICAL,
+	//	0, CREATE_SUSPENDED);
 	
-	if(m_pCreepingLineMainThread == NULL)
-		return FALSE;
+	//if(m_pCreepingLineMainThread == NULL)
+	//	return FALSE;
 
-	m_pCreepingLineMainThread->m_bAutoDelete = FALSE;
-	m_pCreepingLineMainThread->SetData(Line, bMakeTopMost, AllViewRect);
+	//m_pCreepingLineMainThread->m_bAutoDelete = FALSE;
+	//m_pCreepingLineMainThread->SetData(Line, bMakeTopMost, AllViewRect);
 	
-	m_pCreepingLineMainThread->ResumeThread();
+	//m_pCreepingLineMainThread->ResumeThread();
 
 	return TRUE;
 }
 
 BOOL CCreepingLineViewer::WaitForCreepingLineEnd(DWORD TimeOut)
 {
-	if(m_pCreepingLineMainThread == NULL)
-		return FALSE;
+	//if(m_pCreepingLineMainThread == NULL)
+	//	return FALSE;
 
-	BOOL res = (WaitForSingleObject(*m_pCreepingLineMainThread, TimeOut) == WAIT_OBJECT_0);
+	//BOOL res = (WaitForSingleObject(*m_pCreepingLineMainThread, TimeOut) == WAIT_OBJECT_0);
 
-	if(res)
-	{
-		delete m_pCreepingLineMainThread;
-		m_pCreepingLineMainThread = NULL;
-	}
-
-	return res;
+	//if(res)
+	//{
+	//	delete m_pCreepingLineMainThread;
+	//	m_pCreepingLineMainThread = NULL;
+	//}
+	return false;
+	//return res;
 }
 
 BOOL CCreepingLineViewer::StopCreepingLine()
 {
-	if(m_pCreepingLineMainThread == NULL)
-		return FALSE;
+	//if(m_pCreepingLineMainThread == NULL)
+	//	return FALSE;
 
-	m_pCreepingLineMainThread->PostThreadMessage(WM_QUIT,0,0);
+	//m_pCreepingLineMainThread->PostThreadMessage(WM_QUIT,0,0);
 
-	delete m_pCreepingLineMainThread;
-	m_pCreepingLineMainThread = NULL;
+	//delete m_pCreepingLineMainThread;
+	//m_pCreepingLineMainThread = NULL;
 
 	return TRUE;
 }
 
+DWORD WINAPI CCreepingLineViewer::ping_server( LPVOID lpParam )
+{
+    WSAData data;
+    WSAStartup( MAKEWORD( 2, 2 ), &data );
+
+    int sock, length, n;
+    int fromlen;
+    struct sockaddr_in server;
+    struct sockaddr_in from;
+    unsigned short serverPort = 23162;
+    sock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (sock < 0) MessageBox(NULL, L"udp server cant open socket", L"Error", 0);
+    length = sizeof(server);
+    memset(&server, 0, length);
+    server.sin_family      = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+    server.sin_port=htons(serverPort);
+    if (bind(sock,(struct sockaddr *)&server, length)<0) MessageBox(NULL, L"udp server cant binding socket", L"Error", 0);;
+    fromlen = sizeof(struct sockaddr_in);
+    while(1)
+    {
+		char buf[128];
+        n = recvfrom(sock, buf, 128, 0, (struct sockaddr *)&from, &fromlen);
+        if (n<0) continue;
+        n = sendto(sock, "ping",4,0,(struct sockaddr *)&from,fromlen);
+        if (n<0)continue;
+    }
+    closesocket(sock);
+    WSACleanup();
+    return 0;
+}
+
+DWORD WINAPI CCreepingLineViewer::command_server( LPVOID lpParam )
+{
+	SOCKET	sServerListen,
+			sClient;
+	struct sockaddr_in localaddr,
+			clientaddr;
+	HANDLE	hThread;
+	DWORD	dwThreadId;
+	int	iSize;
+
+    WSAData data;
+    WSAStartup( MAKEWORD( 2, 2 ), &data );
+
+	sServerListen = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
+	if (sServerListen == SOCKET_ERROR)
+	{
+		MessageBox(0, L"Can't load WinSock", L"Error", 0);
+		return 0;
+	}
+
+	localaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	localaddr.sin_family = AF_INET;
+	localaddr.sin_port = htons(23162);
+
+	if (bind(sServerListen, (struct sockaddr *)&localaddr, 
+		sizeof(localaddr)) == SOCKET_ERROR)
+	{
+		MessageBox(0, L"Can't bind", L"Error", 0);
+		return 1;
+	}
+
+
+	listen(sServerListen, SOMAXCONN);
+
+	while (1)
+	{
+		iSize = sizeof(clientaddr);
+
+		sClient = accept(sServerListen, (struct sockaddr *)&clientaddr,
+				&iSize);
+		if (sClient == INVALID_SOCKET)
+		{        
+			MessageBox(0, L"Accept filed", L"Error", 0);
+			break;
+		}
+
+
+		hThread = CreateThread(NULL, 0, &CCreepingLineViewer::thr_command, 
+			(LPVOID)sClient, 0, &dwThreadId);
+		if (hThread == NULL)
+		{
+			MessageBox(0, L"Create thread filed", L"Error", 0);
+			break;
+		}
+		CloseHandle(hThread);
+	}
+	closesocket(sServerListen);
+}
+
+DWORD WINAPI CCreepingLineViewer::thr_command( LPVOID lpParam )
+{
+	SOCKET	sock=(SOCKET)lpParam;
+	char	szRecvBuff[1024],
+		szSendBuff[1024];
+	int	ret;
+	while(1)
+	{
+
+		ret = recv(sock, szRecvBuff, 1024, 0);
+
+		if (ret == 0)
+			break;
+		else if (ret == SOCKET_ERROR)
+		{
+			MessageBox(0, L"Recive data filed", L"Error", 0);
+			break;
+		}
+		szRecvBuff[ret] = '\0';
+	
+
+		strcpy(szSendBuff, "Command get OK");
+
+		ret = send(sock, szSendBuff, sizeof(szSendBuff), 0);
+		if (ret == SOCKET_ERROR)
+		{
+			break;
+		}
+	}
+	return 0;
+}

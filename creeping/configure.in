@@ -72,7 +72,7 @@ AS_CASE([$enable_windowsystem],
 				],
   [windows],  [
 					AC_SUBST(WINDOWSYSTEM_CFLAGS, ["-DUSE_WND_PLATFORM_WINDOWS_GL"])
-					AC_SUBST(WINDOWSYSTEM_LIBS,   ["-DUSE_WND_PLATFORM_WINDOWS_GL -lpthread -lintl -lgio-2.0  -lgobject-2.0   -lglib-2.0 -lintl    -lshlwapi -lws2_32 -ldnsapi  "])
+					AC_SUBST(WINDOWSYSTEM_LIBS,   ["-DUSE_WND_PLATFORM_WINDOWS_GL -lpthread -lintl -lgio-2.0  -lgobject-2.0   -lglib-2.0 -lintl    -lshlwapi -lws2_32 -ldnsapi -mwindows "])
 				],
   [  AC_MSG_ERROR([bad value ${enable_windowsystem} for --enable-windowsystem])]
 )

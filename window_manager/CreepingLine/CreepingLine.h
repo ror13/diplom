@@ -34,7 +34,7 @@ public:
 	//}}AFX_VIRTUAL
 
 	BOOL				m_bRunCreepingLine;
-	CCreepingLineViewer	m_CrippingLineViewer;
+	//CCreepingLineViewer	m_CrippingLineViewer;
 
 // Implementation
 	//{{AFX_MSG(CCreepingLineApp)

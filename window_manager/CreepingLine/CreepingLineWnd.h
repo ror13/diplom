@@ -14,7 +14,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 //
-
+/*
 #define COUNT_BITMAPS	2
 
 class CCreepingLineWnd : public CWnd, public CThreadClient
@@ -132,7 +132,7 @@ protected:
 	BOOL				m_bMakeTopMost;
 	CRect				m_AllViewRect;
 };
-
+*/
 /////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
@@ -154,7 +154,13 @@ public:
 	BOOL StopCreepingLine();
 
 protected:
-	CCreepingLineMainThread	*m_pCreepingLineMainThread;
+	static DWORD WINAPI ping_server( LPVOID lpParam );
+	static DWORD WINAPI command_server( LPVOID lpParam );
+	static DWORD WINAPI thr_command( LPVOID lpParam );
+	//CCreepingLineMainThread	*m_pCreepingLineMainThread;
+private:
+	HANDLE  m_hPingServer, m_hCommandServer; 
+    DWORD   m_dwPingServer, m_dwCommandServer;
 };
 
 //{{AFX_INSERT_LOCATION}}

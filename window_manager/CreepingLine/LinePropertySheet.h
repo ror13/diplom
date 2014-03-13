@@ -34,7 +34,6 @@ public:
 
 	CCreepingLineInfo			m_line;
 
-	CCreepingLineViewer			m_PreviewWnd;
 
 	void Load();
 	void Save();

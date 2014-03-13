@@ -1,9 +1,9 @@
-﻿Сборка начата 09.03.2014 20:16:45.
+﻿Сборка начата 13.03.2014 4:20:00.
      1>Проект "E:\diplom\window_manager\CreepingLine\CreepingLine.vcxproj" в узле 2 (целевые объекты build).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
      1>InitializeBuildStatus:
-         Создание "..\Intermediate\Release\CreepingLine.unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "..\Intermediate\Release\CreepingLine.unsuccessfulbuild".
        ClCompile:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Libs/appweb /I../Libs/appweb/include /I../Inc /I../Libs /I../Presenter.Engine /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN /D WIN32 /D _WINDOWS /D UNICODE /D CREEPING_LINE_PRJ /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"..\Intermediate\Release\CreepingLine.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
          StdAfx.cpp
@@ -235,8 +235,9 @@
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
      1>E:\diplom\window_manager\Libs\CImg.h(6336): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
-     1>CreepingLineWnd.cpp(111): warning C4996: '_wgetenv': This function or variable may be unsafe. Consider using _wdupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(879): см. объявление "_wgetenv"
+     1>CreepingLineWnd.cpp(937): warning C4101: dwThreadId: неиспользованная локальная переменная
+     1>CreepingLineWnd.cpp(1010): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
          html2txt.cpp
          LinePropertyPageFont.cpp
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -286,6 +287,8 @@
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
          Создание кода...
+     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(987): warning C4715: CCreepingLineViewer::command_server: значение возвращается не при всех путях выполнения
+     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(979): warning C4700: использована неинициализированная локальная переменная "hThread"
          Компиляция...
          BitmapEx.cpp
      1>..\Libs\BitmapEx.cpp(170): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -555,8 +558,6 @@
          CreepingLine.vcxproj -> E:\diplom\window_manager\CreepingLine\..\Binaries\Release\CreepingLine.exe
        Manifest:
          c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\Binaries\Release\CreepingLine.exe;#1" /manifest ..\Intermediate\Release\CreepingLine.exe.intermediate.manifest "c:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
-       MakeDirsForBscMake:
-         Создание каталога "E:\diplom\window_manager\~Binaries\ReleaseLib\".
        BscMake:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\~Binaries\ReleaseLib\CreepingLine.bsc" ..\Intermediate\Release\BitmapBuf.sbr ..\Intermediate\Release\CommandLineParser.sbr ..\Intermediate\Release\CreepingLine.sbr ..\Intermediate\Release\CreepingLineDoc.sbr ..\Intermediate\Release\CreepingLineView.sbr ..\Intermediate\Release\CreepingLineWnd.sbr ..\Intermediate\Release\html2txt.sbr ..\Intermediate\Release\LinePropertyPageFont.sbr ..\Intermediate\Release\LinePropertyPageGeneral.sbr ..\Intermediate\Release\LinePropertyPagePosition.sbr ..\Intermediate\Release\LinePropertyPageWindow.sbr ..\Intermediate\Release\LinePropertySheet.sbr ..\Intermediate\Release\log.sbr ..\Intermediate\Release\MainFrm.sbr ..\Intermediate\Release\MMTimer.sbr ..\Intermediate\Release\MyTracker.sbr ..\Intermediate\Release\rss.sbr ..\Intermediate\Release\RunTests.sbr ..\Intermediate\Release\StdAfx.sbr ..\Intermediate\Release\Thread.sbr ..\Intermediate\Release\WindowPositionControl.sbr ..\Intermediate\Release\lauxlib.sbr ..\Intermediate\Release\lbaselib.sbr ..\Intermediate\Release\ldblib.sbr ..\Intermediate\Release\liolib.sbr ..\Intermediate\Release\lmathlib.sbr ..\Intermediate\Release\loadlib.sbr ..\Intermediate\Release\lstrlib.sbr ..\Intermediate\Release\ltablib.sbr ..\Intermediate\Release\lapi.sbr ..\Intermediate\Release\lcode.sbr ..\Intermediate\Release\ldebug.sbr ..\Intermediate\Release\ldo.sbr ..\Intermediate\Release\ldump.sbr ..\Intermediate\Release\lfunc.sbr ..\Intermediate\Release\lgc.sbr ..\Intermediate\Release\linit.sbr ..\Intermediate\Release\llex.sbr ..\Intermediate\Release\lmem.sbr ..\Intermediate\Release\lobject.sbr ..\Intermediate\Release\lopcodes.sbr ..\Intermediate\Release\loslib.sbr ..\Intermediate\Release\lparser.sbr ..\Intermediate\Release\lstate.sbr ..\Intermediate\Release\lstring.sbr ..\Intermediate\Release\ltable.sbr ..\Intermediate\Release\ltm.sbr ..\Intermediate\Release\luac.sbr ..\Intermediate\Release\lundump.sbr ..\Intermediate\Release\lvm.sbr ..\Intermediate\Release\lzio.sbr ..\Intermediate\Release\print.sbr ..\Intermediate\Release\BitmapEx.sbr ..\Intermediate\Release\CLua.sbr ..\Intermediate\Release\ColorBox.sbr ..\Intermediate\Release\CreepingLineInfo.sbr ..\Intermediate\Release\FileOperation.sbr ..\Intermediate\Release\MakeWindowTransparent.sbr ..\Intermediate\Release\md5.sbr ..\Intermediate\Release\MonCustomRes.sbr ..\Intermediate\Release\MonResDatas.sbr ..\Intermediate\Release\SerializeStruct.sbr ..\Intermediate\Release\Translate.sbr ..\Intermediate\Release\WebGrab.sbr
        FinalizeBuildStatus:
@@ -566,4 +567,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:14.42
+Затраченное время: 00:00:14.17

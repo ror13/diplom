@@ -143,14 +143,14 @@ HKEY_CLASSES_ROOT\CreepingLine.Document = Creeping Line Document
 			return FALSE;
 		}
 
-
+/*
 		if(cmdInfo.m_bSetRect)
 			m_CrippingLineViewer.BeginCreepingLine(line, TRUE, cmdInfo.m_FullViewRect);
 		else
 			m_CrippingLineViewer.BeginCreepingLine(line, TRUE);
 
 		m_CrippingLineViewer.WaitForCreepingLineEnd();
-
+*/
 		return FALSE;
 
 //		m_CrippingLine.ShowWindow(SW_SHOW);

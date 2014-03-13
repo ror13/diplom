@@ -143,23 +143,14 @@ void CLinePropertySheet::Save()
 
 void CLinePropertySheet::OnPreview()
 {
-	OnStopPreview();
-	Save();
 
-	if(!m_PreviewWnd.IsPlay())
-	{
-		m_PreviewWnd.BeginCreepingLine(m_line);
-	}
 }
 
 /////////////////////////////////////////////////////////////////////////////
 
 void CLinePropertySheet::OnStopPreview()
 {
-	if(m_PreviewWnd.IsPlay())
-	{
-		m_PreviewWnd.StopCreepingLine();
-	}
+
 }
 
 /////////////////////////////////////////////////////////////////////////////

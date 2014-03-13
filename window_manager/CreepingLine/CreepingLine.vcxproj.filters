@@ -28,9 +28,6 @@
     <Filter Include="Inc">
       <UniqueIdentifier>{24a72148-8650-47b3-a17f-a19f53616446}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Presenter">
-      <UniqueIdentifier>{e6e5d9ef-fc59-419a-8927-3192b4e0dab2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ConfigurationWizard">
       <UniqueIdentifier>{f07eab2d-02c3-41b8-8d66-13de1268cbbb}</UniqueIdentifier>
     </Filter>
@@ -388,9 +385,6 @@
     </ClInclude>
     <ClInclude Include="..\Inc\CommonApi.h">
       <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Presenter\PresenterRegistry.h">
-      <Filter>Presenter</Filter>
     </ClInclude>
     <ClInclude Include="..\ConfigurationWizard\ConfigurationWizardExt.h">
       <Filter>ConfigurationWizard</Filter>
