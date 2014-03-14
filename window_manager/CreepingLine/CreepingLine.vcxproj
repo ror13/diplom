@@ -651,6 +651,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="..\Libs\MMTimer.h" />
     <ClInclude Include="MyTracker.h" />
+    <ClInclude Include="NetCommanProtocol.h" />
     <ClInclude Include="rss.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="WindowPositionControl.h" />

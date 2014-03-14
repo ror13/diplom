@@ -1,9 +1,9 @@
-﻿Сборка начата 13.03.2014 4:20:00.
+﻿Сборка начата 14.03.2014 4:24:40.
      1>Проект "E:\diplom\window_manager\CreepingLine\CreepingLine.vcxproj" в узле 2 (целевые объекты build).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
      1>InitializeBuildStatus:
-         Обращение к "..\Intermediate\Release\CreepingLine.unsuccessfulbuild".
+         Создание "..\Intermediate\Release\CreepingLine.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../CustomResolution /I../Libs/appweb /I../Libs/appweb/include /I../Inc /I../Libs /I../Presenter.Engine /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN /D WIN32 /D _WINDOWS /D UNICODE /D CREEPING_LINE_PRJ /D LANG_INTERFACE_ENG /D _VC80_UPGRADE=0x0600 /D _UNICODE /D UNICODE /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"..\Intermediate\Release\CreepingLine.pch" /Fo"..\Intermediate\Release\\" /Fd"..\Intermediate\Release\vc100.pdb" /FR"..\Intermediate\Release\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
          StdAfx.cpp
@@ -235,9 +235,12 @@
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
      1>E:\diplom\window_manager\Libs\CImg.h(6336): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
-     1>CreepingLineWnd.cpp(937): warning C4101: dwThreadId: неиспользованная локальная переменная
-     1>CreepingLineWnd.cpp(1010): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\string.h(105): см. объявление "strcpy"
+     1>CreepingLineWnd.cpp(998): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(999): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(999): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1001): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1004): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1011): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
          html2txt.cpp
          LinePropertyPageFont.cpp
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -287,8 +290,7 @@
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
          Создание кода...
-     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(987): warning C4715: CCreepingLineViewer::command_server: значение возвращается не при всех путях выполнения
-     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(979): warning C4700: использована неинициализированная локальная переменная "hThread"
+     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(975): warning C4715: CCreepingLineViewer::command_server: значение возвращается не при всех путях выполнения
          Компиляция...
          BitmapEx.cpp
      1>..\Libs\BitmapEx.cpp(170): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -567,4 +569,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:14.17
+Затраченное время: 00:00:13.97

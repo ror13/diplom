@@ -1,4 +1,4 @@
-﻿Сборка начата 13.03.2014 4:19:54.
+﻿Сборка начата 14.03.2014 4:24:33.
      1>Проект "E:\diplom\window_manager\CustomResolution\CustomResolution.vcxproj" в узле 2 (целевые объекты build).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
@@ -58,4 +58,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:06.74
+Затраченное время: 00:00:07.20

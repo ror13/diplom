@@ -1,7 +1,8 @@
 // CreepingLineWnd.cpp : implementation file
 //
-#include "winsock2.h"
+
 #include "stdafx.h"
+#include "winsock2.h"
 #include "CreepingLineWnd.h"
 #include "../Libs/MakeWindowTransparent.h"
 //#include "../Libs/Gdi.h"
@@ -18,6 +19,8 @@
 #include "WebGrab.h"
 
 #include "FileOperation.h"
+
+#include "NetCommanProtocol.h"
 
 using namespace cimg_library; 
 
@@ -806,8 +809,13 @@ BOOL CCreepingLineMainThread::InitInstance()
 //////////////////////////////////////////////////////////////////////////
 // CCreepingLineViewer
 
+HANDLE CCreepingLineViewer::m_Mutex = NULL;
+BOOL   CCreepingLineViewer::m_PlayState = false;
+CString CCreepingLineViewer::m_LineInfo = "";
 CCreepingLineViewer::CCreepingLineViewer()
 {
+	if(m_Mutex == NULL)
+		m_Mutex = CreateMutex(NULL, FALSE, NULL); 
 	m_hPingServer = CreateThread(NULL, 0, &CCreepingLineViewer::ping_server,
                     NULL, 0, &m_dwPingServer);
 	if(m_hPingServer == NULL)
@@ -817,52 +825,37 @@ CCreepingLineViewer::CCreepingLineViewer()
                     this, 0, &m_dwCommandServer);
 	if(m_hCommandServer == NULL)
 		MessageBox(NULL, L"cant start command server", L"Error", 0);
+	m_PlayState = false;
 	//m_pCreepingLineMainThread = NULL;
 }
 
 CCreepingLineViewer::~CCreepingLineViewer()
 {
+	StopCreepingLine();
 	if(m_hPingServer != NULL)
 		CloseHandle(m_hPingServer);
 	if(m_hCommandServer != NULL)
 		CloseHandle(m_hCommandServer);
-	StopCreepingLine();
+	if(m_Mutex != NULL)
+	{
+		CloseHandle(m_Mutex);
+		m_Mutex = NULL;
+	}
 }
 
 BOOL CCreepingLineViewer::IsPlay()
 {
-	//if(m_pCreepingLineMainThread != NULL)
-	{
-		DWORD ExitCode = 0;
-		//GetExitCodeThread(*m_pCreepingLineMainThread, &ExitCode);
-		if(ExitCode == STILL_ACTIVE)
-			return TRUE;
-		else
-		{
-			//delete m_pCreepingLineMainThread;
-			//m_pCreepingLineMainThread = NULL;
-		}
-	}
-	return FALSE;
+
+	return m_PlayState;
 }
 
 BOOL CCreepingLineViewer::BeginCreepingLine(CCreepingLineInfo Line, BOOL bMakeTopMost,
 											CRect AllViewRect)
 {
-	StopCreepingLine();
-
-	//m_pCreepingLineMainThread = (CCreepingLineMainThread*)AfxBeginThread(
-	//	RUNTIME_CLASS(CCreepingLineMainThread), THREAD_PRIORITY_TIME_CRITICAL,
-	//	0, CREATE_SUSPENDED);
-	
-	//if(m_pCreepingLineMainThread == NULL)
-	//	return FALSE;
-
-	//m_pCreepingLineMainThread->m_bAutoDelete = FALSE;
-	//m_pCreepingLineMainThread->SetData(Line, bMakeTopMost, AllViewRect);
-	
-	//m_pCreepingLineMainThread->ResumeThread();
-
+	if(m_PlayState)
+		StopCreepingLine();
+	Line.GetValues(CCreepingLineViewer::m_LineInfo);
+	m_PlayState = true;
 	return TRUE;
 }
 
@@ -884,13 +877,8 @@ BOOL CCreepingLineViewer::WaitForCreepingLineEnd(DWORD TimeOut)
 
 BOOL CCreepingLineViewer::StopCreepingLine()
 {
-	//if(m_pCreepingLineMainThread == NULL)
-	//	return FALSE;
-
-	//m_pCreepingLineMainThread->PostThreadMessage(WM_QUIT,0,0);
-
-	//delete m_pCreepingLineMainThread;
-	//m_pCreepingLineMainThread = NULL;
+	CCreepingLineViewer::m_LineInfo.Empty();
+	m_PlayState = false;
 
 	return TRUE;
 }
@@ -959,7 +947,7 @@ DWORD WINAPI CCreepingLineViewer::command_server( LPVOID lpParam )
 	}
 
 
-	listen(sServerListen, SOMAXCONN);
+	listen(sServerListen, SOMAXCONN );
 
 	while (1)
 	{
@@ -989,13 +977,11 @@ DWORD WINAPI CCreepingLineViewer::command_server( LPVOID lpParam )
 DWORD WINAPI CCreepingLineViewer::thr_command( LPVOID lpParam )
 {
 	SOCKET	sock=(SOCKET)lpParam;
-	char	szRecvBuff[1024],
-		szSendBuff[1024];
 	int	ret;
 	while(1)
 	{
-
-		ret = recv(sock, szRecvBuff, 1024, 0);
+		char msg_buff;
+		ret = recv(sock, &msg_buff, 1, 0);
 
 		if (ret == 0)
 			break;
@@ -1004,12 +990,29 @@ DWORD WINAPI CCreepingLineViewer::thr_command( LPVOID lpParam )
 			MessageBox(0, L"Recive data filed", L"Error", 0);
 			break;
 		}
-		szRecvBuff[ret] = '\0';
-	
 
-		strcpy(szSendBuff, "Command get OK");
+		CStringA ret_data;
 
-		ret = send(sock, szSendBuff, sizeof(szSendBuff), 0);
+		switch(msg_buff)
+		{
+		case NCP::MSG_STATE : 
+			ret_data = (char)(m_PlayState ? NCP::MSG_STATE_START : NCP::MSG_STATE_STOP);
+			break;
+		case NCP::MSG_DATA  : 
+			ret_data = m_LineInfo;
+			break;
+		case NCP::MSG_DATA_SIZE  : 
+			{
+				int size_info = m_LineInfo.GetLength();
+				memcpy(ret_data.GetBufferSetLength(4),&size_info,4);
+			}
+			break;
+		default : 
+			ret_data = (char)NCP::MSG_ERR;
+		};
+
+		ret = send(sock, &msg_buff, sizeof(char), 0);
+		ret = send(sock, (LPCSTR)ret_data, ret_data.GetLength(), 0);
 		if (ret == SOCKET_ERROR)
 		{
 			break;

@@ -389,6 +389,9 @@
     <ClInclude Include="..\ConfigurationWizard\ConfigurationWizardExt.h">
       <Filter>ConfigurationWizard</Filter>
     </ClInclude>
+    <ClInclude Include="NetCommanProtocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CreepingLine-eng.rc">

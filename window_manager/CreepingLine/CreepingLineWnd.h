@@ -10,8 +10,6 @@
 #include "CreepingLineInfo.h"
 #include "Thread.h"
 
-#include "BitmapBuf.h"
-
 //////////////////////////////////////////////////////////////////////////
 //
 /*
@@ -159,8 +157,12 @@ protected:
 	static DWORD WINAPI thr_command( LPVOID lpParam );
 	//CCreepingLineMainThread	*m_pCreepingLineMainThread;
 private:
+	static HANDLE  m_Mutex;
+	static BOOL	m_PlayState;
+	static CString m_LineInfo;
 	HANDLE  m_hPingServer, m_hCommandServer; 
     DWORD   m_dwPingServer, m_dwCommandServer;
+	
 };
 
 //{{AFX_INSERT_LOCATION}}
