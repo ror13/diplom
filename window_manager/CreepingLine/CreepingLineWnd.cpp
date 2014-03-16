@@ -890,6 +890,7 @@ DWORD WINAPI CCreepingLineViewer::ping_server( LPVOID lpParam )
 
     int sock, length, n;
     int fromlen;
+	long bBroadcast = 1;
     struct sockaddr_in server;
     struct sockaddr_in from;
     unsigned short serverPort = 23162;
@@ -900,7 +901,11 @@ DWORD WINAPI CCreepingLineViewer::ping_server( LPVOID lpParam )
     server.sin_family      = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port=htons(serverPort);
-    if (bind(sock,(struct sockaddr *)&server, length)<0) MessageBox(NULL, L"udp server cant binding socket", L"Error", 0);;
+	if (setsockopt(sock, SOL_SOCKET, SO_BROADCAST, (const char *)&bBroadcast, sizeof(bBroadcast)) < 0)
+	{
+		MessageBox(NULL, L"setsockopt BROADCAS", L"Error", 0);
+	}
+    if (bind(sock,(struct sockaddr *)&server, length)<0) MessageBox(NULL, L"udp server cant binding socket", L"Error", 0);
     fromlen = sizeof(struct sockaddr_in);
     while(1)
     {
