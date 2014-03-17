@@ -852,34 +852,24 @@ BOOL CCreepingLineViewer::IsPlay()
 BOOL CCreepingLineViewer::BeginCreepingLine(CCreepingLineInfo Line, BOOL bMakeTopMost,
 											CRect AllViewRect)
 {
-	if(m_PlayState)
-		StopCreepingLine();
+	WaitForSingleObject(CCreepingLineViewer::m_Mutex,INFINITE);
 	Line.GetValues(CCreepingLineViewer::m_LineInfo);
 	m_PlayState = true;
+	ReleaseMutex(CCreepingLineViewer::m_Mutex);
 	return TRUE;
 }
 
 BOOL CCreepingLineViewer::WaitForCreepingLineEnd(DWORD TimeOut)
 {
-	//if(m_pCreepingLineMainThread == NULL)
-	//	return FALSE;
-
-	//BOOL res = (WaitForSingleObject(*m_pCreepingLineMainThread, TimeOut) == WAIT_OBJECT_0);
-
-	//if(res)
-	//{
-	//	delete m_pCreepingLineMainThread;
-	//	m_pCreepingLineMainThread = NULL;
-	//}
 	return false;
-	//return res;
 }
 
 BOOL CCreepingLineViewer::StopCreepingLine()
 {
+	WaitForSingleObject(CCreepingLineViewer::m_Mutex,INFINITE);
 	CCreepingLineViewer::m_LineInfo.Empty();
 	m_PlayState = false;
-
+	ReleaseMutex(CCreepingLineViewer::m_Mutex);
 	return TRUE;
 }
 
@@ -992,14 +982,20 @@ DWORD WINAPI CCreepingLineViewer::thr_command( LPVOID lpParam )
 			break;
 		else if (ret == SOCKET_ERROR)
 		{
-			MessageBox(0, L"Recive data filed", L"Error", 0);
+			//MessageBox(0, L"Recive data filed", L"Error", 0);
 			break;
 		}
 
 		CStringA ret_data;
-
+		WaitForSingleObject(CCreepingLineViewer::m_Mutex,INFINITE);
 		switch(msg_buff)
 		{
+		case NCP::MSG_ERR : 
+			ret_data = (char)NCP::MSG_OK;
+			break;
+		case NCP::MSG_OK : 
+			ret_data = (char)NCP::MSG_OK;
+			break;
 		case NCP::MSG_STATE : 
 			ret_data = (char)(m_PlayState ? NCP::MSG_STATE_START : NCP::MSG_STATE_STOP);
 			break;
@@ -1015,10 +1011,10 @@ DWORD WINAPI CCreepingLineViewer::thr_command( LPVOID lpParam )
 		default : 
 			ret_data = (char)NCP::MSG_ERR;
 		};
-
+		ReleaseMutex(CCreepingLineViewer::m_Mutex);
 		ret = send(sock, &msg_buff, sizeof(char), 0);
 		ret = send(sock, (LPCSTR)ret_data, ret_data.GetLength(), 0);
-		if (ret == SOCKET_ERROR)
+		if (ret == SOCKET_ERROR || msg_buff == NCP::MSG_ERR)
 		{
 			break;
 		}
