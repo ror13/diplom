@@ -50,8 +50,7 @@ stop()
 	if(!runing)
 		return;
 	pthread_cancel(pid);
-	pthread_join(pid, NULL);
-	runing = false;
+	join();
 	DEBUG_PRINT_LINE;
 }
 

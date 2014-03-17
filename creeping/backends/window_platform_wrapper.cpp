@@ -299,12 +299,17 @@ create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
 void 
 destroy_native_window(NativeWindow* n_window)
 {
+	if(!n_window->Xdisplay)
+		return;
+	DEBUG_PRINT_LINE;
 	glXMakeCurrent( n_window->Xdisplay, 0, 0 );
 	glXDestroyContext( n_window->Xdisplay, n_window->render_context );
- 
+	DEBUG_PRINT_LINE;
 	XDestroyWindow( n_window->Xdisplay, n_window->window_handle );
 	XFreeColormap( n_window->Xdisplay, n_window->cmap );
 	XCloseDisplay( n_window->Xdisplay );
+	DEBUG_PRINT_LINE;
+
 }
 
 void 

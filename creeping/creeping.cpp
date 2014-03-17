@@ -78,8 +78,10 @@ Creeping::
 ~Creeping()
 {
 	DEBUG_PRINT_LINE;
+	stop();
 	deinit();
 	delete wnd;
+	wnd = NULL;
 	DEBUG_PRINT_LINE;
 }
 
@@ -166,6 +168,8 @@ redraw_window(void * _this)
 {
 	DEBUG_PRINT_LINE;
 	Creeping * self = (Creeping *) _this;
+	pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
+	
 	pthread_cleanup_push(&Creeping::exit_redraw_window, _this);
 	int current_pos = 0;
 	int window_x, window_y, window_width, window_height;
@@ -178,6 +182,8 @@ redraw_window(void * _this)
 	self->wnd->draw();
 	timer.start();
 	self->mutex.unlock();
+	
+	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 	
 	for(;;)
 	{
@@ -232,7 +238,11 @@ redraw_window(void * _this)
 
 void Creeping::exit_redraw_window(void * _this)
 {
+	DEBUG_PRINT_LINE;
 	Creeping * self = (Creeping *) _this;
-	self->wnd->close();
+	self->deinit();
+	if(self->wnd)
+		self->wnd->close();
+	DEBUG_PRINT_LINE;
 }
 

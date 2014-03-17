@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH="${PATH}:/home/ror13/src/mxe/usr/bin" ./configure   --enable-windowsystem=linuxX11 --enable-drawsystem=opengl
+PATH="${PATH}:/home/ror13/src/mxe/usr/bin" ./configure   --enable-windowsystem=linuxX11 --enable-drawsystem=opengl --enable-debug
 PATH="${PATH}:/home/ror13/src/mxe/usr/bin" make clean
-PATH="${PATH}:/home/ror13/src/mxe/usr/bin" ./configure   --enable-windowsystem=linuxX11 --enable-drawsystem=opengl
+PATH="${PATH}:/home/ror13/src/mxe/usr/bin" ./configure   --enable-windowsystem=linuxX11 --enable-drawsystem=opengl --enable-debug
 PATH="${PATH}:/home/ror13/src/mxe/usr/bin" make 

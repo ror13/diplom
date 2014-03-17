@@ -11,9 +11,9 @@ GlesWindow::
 GlesWindow()
 {
 	DEBUG_PRINT_LINE;
-	memset(&window_rect,0,sizeof(window_rect));
-	memset(&n_window,0,sizeof(n_window));
-	memset(&bg_color,0,sizeof(bg_color));
+	memset(&window_rect,0x0,sizeof(window_rect));
+	memset(&n_window,0x0,sizeof(n_window));
+	memset(&bg_color,0x0,sizeof(bg_color));
 	init_window_system(&n_window);
 
 	box[0] = -1;	box[1] = -1;
@@ -140,7 +140,10 @@ open(ConfFile * conf_file)
 void GlesWindow::
 close()
 {
+	DEBUG_PRINT_LINE;
 	destroy_native_window(&n_window);
+	memset(&n_window,0x0,sizeof(n_window));
+	DEBUG_PRINT_LINE;
 }
 //------------------------------ layout ---------------------------------------------------
 
@@ -187,7 +190,8 @@ set_tex_color(int RGB)
 GlesSurface::~GlesSurface()
 {
 	DEBUG_PRINT_LINE;
-	free_texture();
+	if(texture != NULL)
+		free_texture();
 	if(pixel_buffer != NULL)
 		delete [] pixel_buffer;
 	DEBUG_PRINT_LINE;
