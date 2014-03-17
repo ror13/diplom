@@ -123,7 +123,19 @@ deinit_window_system(NativeWindow* n_window)
 void 
 get_screen_size(int * width, int * height)
 {
-	
+	Display* pdsp = NULL;
+	Screen* pscr = NULL;
+
+	pdsp = XOpenDisplay( NULL );
+	if ( !pdsp ) 
+		return ;
+	pscr = DefaultScreenOfDisplay( pdsp );
+	if ( !pscr )
+		return ;
+
+	*width = pscr->width;
+	*height = pscr->height;
+	XCloseDisplay(pdsp);
 }
 
 void 
@@ -319,57 +331,7 @@ swap_opengl_buffers(NativeWindow* n_window)
 }
 #endif
 
-#ifdef USE_WND_PLATFORM_LINUX_QT
 
-void 
-init_window_system(NativeWindow* n_window)
-{
-	DEBUG_PRINT_LINE;
-
-    DEBUG_PRINT_LINE;
-}
-void 
-deinit_window_system(NativeWindow* n_window)
-{
-	
-}
-void 
-get_screen_size(int * width, int * height)
-{
-	DEBUG_PRINT_LINE;
-	//QDesktopWidget desk;
-
-    *width = 1920;//desk.width() ;
-    *height = 1080;;//desk.height() ;
-    DEBUG_PRINT_LINE;
-}
-void 
-create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
-{
-	DEBUG_PRINT_LINE;
-	int argc = 0;
-    char** argv = NULL;
-    n_window->app = new QApplication(argc,argv);
-	DEBUG_PRINT_LINE;QGLFormat glFormat(QGL::Rgba | QGL::DoubleBuffer | QGL::DepthBuffer | QGL::AlphaChannel);
-    DEBUG_PRINT_LINE;n_window->window = new QGLWidget (glFormat, NULL, NULL, Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
-    DEBUG_PRINT_LINE;n_window->window->resize(wndrect->w,wndrect->h);
-    DEBUG_PRINT_LINE;n_window->window->show();
-
-    DEBUG_PRINT_LINE;n_window->window->makeCurrent();
-    DEBUG_PRINT_LINE;
-}
-void 
-destroy_native_window(NativeWindow* n_window)
-{
-	
-}
-void 
-swap_opengl_buffers(NativeWindow* n_window)
-{
-	n_window->window->swapBuffers ();
-	qApp->processEvents();
-}
-#endif
 
 #ifdef USE_WND_PLATFORM_WINDOWS_GL
 #include <assert.h>
@@ -413,7 +375,9 @@ extern "C"
     typedef HRESULT (WINAPI *t_DwmExtendFrameIntoClientArea)(HWND hwnd, const MARGINS *pMarInset);
 }
  
-void DwmExtendFrameIntoClientArea(HWND hwnd, const MARGINS *pMarInset) {
+void 
+DwmExtendFrameIntoClientArea(HWND hwnd, const MARGINS *pMarInset) 
+{
     HMODULE shell;
  
     shell = LoadLibrary("dwmapi.dll");
@@ -426,7 +390,9 @@ void DwmExtendFrameIntoClientArea(HWND hwnd, const MARGINS *pMarInset) {
  
 }
  
-void DwmEnableBlurBehindWindow(HWND hwnd, const DWM_BLURBEHIND* pBlurBehind) {
+void 
+DwmEnableBlurBehindWindow(HWND hwnd, const DWM_BLURBEHIND* pBlurBehind) 
+{
     HMODULE shell;
  
     shell = LoadLibrary("dwmapi.dll");
@@ -456,49 +422,54 @@ static LRESULT CALLBACK WindowFunc(HWND hWnd,UINT msg, WPARAM wParam, LPARAM lPa
 return DefWindowProc(hWnd,msg,wParam,lParam);
 
 }
-HINSTANCE hThisInst;
-void init_window_system(NativeWindow* n_window)
-{
-	 hThisInst= (HINSTANCE)GetModuleHandle(NULL);
-    WNDCLASSEX wc;
-    memset(&wc, 0, sizeof(wc));
-    wc.cbSize = sizeof(WNDCLASSEX);
-    wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
-    wc.style = CS_HREDRAW | CS_VREDRAW;
-    wc.lpfnWndProc = (WNDPROC)WindowFunc;
-    wc.cbClsExtra  = 0;
-    wc.cbWndExtra  = 0;
-    wc.hInstance = hThisInst;
-    wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wc.hbrBackground = (HBRUSH)CreateSolidBrush(0x00000000);
-    wc.lpszClassName = "CL";
 
-    if(!RegisterClassEx(&wc)) {
-        MessageBox(NULL, _T("RegisterClassEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
-        return ;
-    }
-}
-void deinit_window_system(NativeWindow* n_window)
+void 
+init_window_system(NativeWindow* n_window)
 {
-	
-}
-void get_screen_size(int * width, int * height)
-{
-	 RECT desktop;
-   const HWND hDesktop = GetDesktopWindow();
-   GetWindowRect(hDesktop, &desktop);
-   *width = desktop.right;
-   *height = desktop.bottom;
+	n_window->hThisInst= (HINSTANCE)GetModuleHandle(NULL);
+	memset(&n_window->wc, 0, sizeof(n_window->wc));
+	n_window->wc.cbSize = sizeof(WNDCLASSEX);
+	n_window->wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
+	n_window->wc.style = CS_HREDRAW | CS_VREDRAW;
+	n_window->wc.lpfnWndProc = (WNDPROC)WindowFunc;
+	n_window->wc.cbClsExtra  = 0;
+	n_window->wc.cbWndExtra  = 0;
+	n_window->wc.hInstance = n_window->hThisInst;
+	n_window->wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+	n_window->wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	n_window->wc.hbrBackground = (HBRUSH)CreateSolidBrush(0x00000000);
+	n_window->wc.lpszClassName = WND_NAME;
+
+	if(!RegisterClassEx(&n_window->wc)) {
+		MessageBox(NULL, _T("RegisterClassEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
+		return ;
+	}
 }
 
-void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
+void 
+deinit_window_system(NativeWindow* n_window)
+{
+	UnregisterClass(WND_NAME,n_window->hThisInst);
+}
+
+void 
+get_screen_size(int * width, int * height)
+{
+	RECT desktop;
+	const HWND hDesktop = GetDesktopWindow();
+	GetWindowRect(hDesktop, &desktop);
+	*width = desktop.right;
+	*height = desktop.bottom;
+}
+
+void 
+create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
 {
 
 
-     n_window->hWnd = CreateWindowEx(WS_EX_TOPMOST, "CL", "CL",
+     n_window->hWnd = CreateWindowEx(WS_EX_TOPMOST, WND_NAME, WND_NAME,
                     WS_VISIBLE | WS_POPUP | WS_OVERLAPPED, wndrect->x, wndrect->y, wndrect->w, wndrect->h,
-                    NULL, NULL, hThisInst, NULL);
+                    NULL, NULL, n_window->hThisInst, NULL);
 
     if(!n_window->hWnd) {
         MessageBox(NULL, _T("CreateWindowEx - failed"), _T("Error"), MB_OK | MB_ICONERROR);
@@ -560,7 +531,9 @@ void create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id
 
 
 }
-void destroy_native_window(NativeWindow* n_window)
+
+void 
+destroy_native_window(NativeWindow* n_window)
 {
 	if (n_window->hWnd != 0)
 	{
@@ -579,26 +552,23 @@ void destroy_native_window(NativeWindow* n_window)
 		n_window->hWnd = 0;
 	}
 }
-void swap_opengl_buffers(NativeWindow* n_window)
+
+void 
+swap_opengl_buffers(NativeWindow* n_window)
 {
-            HDC hdc = GetDC(n_window->hWnd);
-            wglMakeCurrent(hdc, n_window->m_hrc);
+	HDC hdc = GetDC(n_window->hWnd);
+	wglMakeCurrent(hdc, n_window->m_hrc);
 
  
 
-            SwapBuffers(hdc);
-            ReleaseDC(n_window->hWnd, hdc);
+	SwapBuffers(hdc);
+	ReleaseDC(n_window->hWnd, hdc);
             
-            MSG msg;
-            if (PeekMessage (&msg, n_window->hWnd, 0, 0, PM_REMOVE) != 0)
-            {
-				TranslateMessage (&msg);
-				DispatchMessage (&msg);
-			}
-
-            
-            
-
-
+	MSG msg;
+	if (PeekMessage (&msg, n_window->hWnd, 0, 0, PM_REMOVE) != 0)
+	{
+		TranslateMessage (&msg);
+		DispatchMessage (&msg);
+	}     
 }
 #endif
