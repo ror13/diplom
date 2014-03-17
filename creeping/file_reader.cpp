@@ -196,11 +196,157 @@ mygets(FILE * f, char **buf)
 }
 
 int ConfFile::
+open(const char * data, int data_size)
+{
+
+	char * line = strtok ((char*)data,"\n");
+	while (line != NULL && line < (line + data_size))
+	{
+		parse_line(line, strlen(line));
+		line = strtok (NULL,"\n");
+	}
+	return 0;
+}
+void ConfFile::
+parse_line(char * line, int len)
+{
+	if(len<=0)
+		return;
+	
+	char *key;
+	char *val;
+	key = (char *) malloc(len);
+	val = (char *) malloc(len);
+
+	memset(key, 0, len);
+	memset(val, 0, len);
+
+	if (strSplit(line, '=', key, val))
+	{
+		if (strcmp(key, "General.LineText") == 0)
+		{
+			if (pClf->lineText)
+				free(pClf->lineText);
+			pClf->lineText = unescape(val);
+		}
+		else if (strcmp(key, "General.bUseRSS") == 0)
+		{
+			pClf->bRss = atoi(val);
+		}
+		else if (strcmp(key, "General.bResizing") == 0)
+		{
+			pClf->bResizing = atoi(val);
+		}
+		else if (strcmp(key, "General.ScrollingSpeed") == 0)
+		{
+			pClf->ScrollingSpeed = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfHeight") == 0)
+		{
+			pClf->font.lfHeight = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfWidth") == 0)
+		{
+			pClf->font.lfWidth = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfEscapement") == 0)
+		{
+			pClf->font.lfEscapement = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfOrientation") == 0)
+		{
+			pClf->font.lfOrientation = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfWeight") == 0)
+		{
+			pClf->font.lfWeight = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfItalic") == 0)
+		{
+			pClf->font.lfItalic = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfUnderline") == 0)
+		{
+			pClf->font.lfUnderline = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfStrikeOut") == 0)
+		{
+			pClf->font.lfStrikeOut = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfCharSet") == 0)
+		{
+			pClf->font.lfCharSet = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfOutPrecision") == 0)
+		{
+			pClf->font.lfOutPrecision = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfClipPrecision") == 0)
+		{
+			pClf->font.lfClipPrecision = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfQuality") == 0)
+		{
+			pClf->font.lfQuality = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfPitchAndFamily") == 0)
+		{
+			pClf->font.lfPitchAndFamily = atoi(val);
+		}
+		else if (strcmp(key, "Font.lfFaceName") == 0)
+		{
+			strcpy(pClf->font.lfFaceName, val);
+		}
+		else if (strcmp(key, "Font.clTextColor") == 0)
+		{
+			pClf->window.clForeground = strtol(val, NULL, 16);
+		}
+		else if (strcmp(key, "Font.clTextSize") == 0)
+		{
+			pClf->window.clTextSize = atoi(val);
+		}
+		else if (strcmp(key, "Window.clBackground") == 0)
+		{
+			pClf->window.clBackground = strtol(val, NULL, 16);
+		}
+		else if (strcmp(key, "Window.clTransparentColor") == 0)
+		{
+			pClf->window.clTransparentColor = strtol(val, NULL, 16);
+		}
+		else if (strcmp(key, "Window.TransparencyFactor") == 0)
+		{
+			pClf->window.TransparencyFactor = atoi(val);
+		}
+		else if (strcmp(key, "Window.Position") == 0)
+		{
+			pClf->window.position = atoi(val);
+		}
+		else if (strcmp(key, "Window.Rect.left") == 0)
+		{
+			pClf->window.rect.left = atoi(val);
+		}
+		else if (strcmp(key, "Window.Rect.top") == 0)
+		{
+			pClf->window.rect.top = atoi(val);
+		}
+		else if (strcmp(key, "Window.Rect.right") == 0)
+		{
+			pClf->window.rect.right = atoi(val);
+		}
+		else if (strcmp(key, "Window.Rect.bottom") == 0)
+		{
+			pClf->window.rect.bottom = atoi(val);
+		}
+	}
+	free(key);
+	free(val);
+}
+
+int ConfFile::
 open(const char *filename)
 {
 	char *line;
-	char *key;
-	char *val;
+
 
 	FILE *f;
 
@@ -230,132 +376,9 @@ open(const char *filename)
 			fprintf(stderr, "fgets");
 			return errno;
 		}
-		key = (char *) malloc(len);
-		val = (char *) malloc(len);
-
-		memset(key, 0, len);
-		memset(val, 0, len);
-
-		if (strSplit(line, '=', key, val))
-		{
-			if (strcmp(key, "General.LineText") == 0)
-			{
-				if (pClf->lineText)
-					free(pClf->lineText);
-				pClf->lineText = unescape(val);
-			}
-			else if (strcmp(key, "General.bUseRSS") == 0)
-			{
-				pClf->bRss = atoi(val);
-			}
-			else if (strcmp(key, "General.bResizing") == 0)
-			{
-				pClf->bResizing = atoi(val);
-			}
-			else if (strcmp(key, "General.ScrollingSpeed") == 0)
-			{
-				pClf->ScrollingSpeed = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfHeight") == 0)
-			{
-				pClf->font.lfHeight = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfWidth") == 0)
-			{
-				pClf->font.lfWidth = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfEscapement") == 0)
-			{
-				pClf->font.lfEscapement = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfOrientation") == 0)
-			{
-				pClf->font.lfOrientation = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfWeight") == 0)
-			{
-				pClf->font.lfWeight = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfItalic") == 0)
-			{
-				pClf->font.lfItalic = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfUnderline") == 0)
-			{
-				pClf->font.lfUnderline = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfStrikeOut") == 0)
-			{
-				pClf->font.lfStrikeOut = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfCharSet") == 0)
-			{
-				pClf->font.lfCharSet = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfOutPrecision") == 0)
-			{
-				pClf->font.lfOutPrecision = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfClipPrecision") == 0)
-			{
-				pClf->font.lfClipPrecision = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfQuality") == 0)
-			{
-				pClf->font.lfQuality = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfPitchAndFamily") == 0)
-			{
-				pClf->font.lfPitchAndFamily = atoi(val);
-			}
-			else if (strcmp(key, "Font.lfFaceName") == 0)
-			{
-				strcpy(pClf->font.lfFaceName, val);
-			}
-			else if (strcmp(key, "Font.clTextColor") == 0)
-			{
-				pClf->window.clForeground = strtol(val, NULL, 16);
-			}
-			else if (strcmp(key, "Font.clTextSize") == 0)
-			{
-				pClf->window.clTextSize = atoi(val);
-			}
-			else if (strcmp(key, "Window.clBackground") == 0)
-			{
-				pClf->window.clBackground = strtol(val, NULL, 16);
-			}
-			else if (strcmp(key, "Window.clTransparentColor") == 0)
-			{
-				pClf->window.clTransparentColor = strtol(val, NULL, 16);
-			}
-			else if (strcmp(key, "Window.TransparencyFactor") == 0)
-			{
-				pClf->window.TransparencyFactor = atoi(val);
-			}
-			else if (strcmp(key, "Window.Position") == 0)
-			{
-				pClf->window.position = atoi(val);
-			}
-			else if (strcmp(key, "Window.Rect.left") == 0)
-			{
-				pClf->window.rect.left = atoi(val);
-			}
-			else if (strcmp(key, "Window.Rect.top") == 0)
-			{
-				pClf->window.rect.top = atoi(val);
-			}
-			else if (strcmp(key, "Window.Rect.right") == 0)
-			{
-				pClf->window.rect.right = atoi(val);
-			}
-			else if (strcmp(key, "Window.Rect.bottom") == 0)
-			{
-				pClf->window.rect.bottom = atoi(val);
-			}
-		}
+		
+		parse_line(line, len);
 		free(line);
-		free(key);
-		free(val);
 	}
 	fclose(f);
 	return 0;

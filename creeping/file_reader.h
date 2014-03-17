@@ -65,6 +65,7 @@ class ConfFile
 		ConfFile();
 		~ConfFile();
 		int open(const char *filename);
+		int open(const char *data, int data_size);
 		void wnd_pos_from_conf(int display_width, int display_height, int * x, 
 								int * y, int *z, int * width, int * height);
 		const ACREEPING_LINE * get_conf();
@@ -75,6 +76,7 @@ class ConfFile
 		int strSplit(const char *src, const char limiter, char *key, char *val);
 		char * trim_right(char *src);
 		char * trim_left(char *src);
+		void parse_line(char * line, int len);
 		ACREEPING_LINE * pClf;
 };
 #endif //FILE_READER_H

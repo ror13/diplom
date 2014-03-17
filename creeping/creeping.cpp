@@ -147,6 +147,13 @@ open_conf(const char *filename)
 	return conf.open(filename);
 }
 
+int Creeping::
+open_conf(const char *data, int data_size)
+{
+	DEBUG_PRINT_LINE;
+	return conf.open(data, data_size);
+}
+
 void Creeping::
 play_once()
 {
@@ -154,13 +161,12 @@ play_once()
 	is_once = true;
 }
 
-
-
 void * Creeping::
 redraw_window(void * _this)
 {
 	DEBUG_PRINT_LINE;
 	Creeping * self = (Creeping *) _this;
+	pthread_cleanup_push(&Creeping::exit_redraw_window, _this);
 	int current_pos = 0;
 	int window_x, window_y, window_width, window_height;
 	self->mutex.lock();
@@ -220,5 +226,13 @@ redraw_window(void * _this)
 			timer.set_val(0);
 		}
 	}
+	pthread_cleanup_pop(0);
 	DEBUG_PRINT_LINE;
 }
+
+void Creeping::exit_redraw_window(void * _this)
+{
+	Creeping * self = (Creeping *) _this;
+	self->wnd->close();
+}
+

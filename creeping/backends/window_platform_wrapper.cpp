@@ -131,7 +131,6 @@ create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
 {
 	XRenderPictFormat *pict_format;
 	XEvent event;
-	Colormap cmap;
 	GLXFBConfig *fbconfigs, fbconfig;
 	Atom del_atom;
 	int numfbconfigs;
@@ -191,9 +190,9 @@ create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
 
     
 
-    cmap = XCreateColormap(n_window->Xdisplay, n_window->Xroot, n_window->visual->visual, AllocNone);
+    n_window->cmap = XCreateColormap(n_window->Xdisplay, n_window->Xroot, n_window->visual->visual, AllocNone);
 
-    attr.colormap = cmap;
+    attr.colormap = n_window->cmap;
     attr.background_pixmap = None;
     attr.border_pixmap = None;
 	attr.border_pixel = 0;
@@ -300,7 +299,12 @@ create_native_window(NativeWindow* n_window, WndRect * wndrect, int view_id)
 void 
 destroy_native_window(NativeWindow* n_window)
 {
-	
+	glXMakeCurrent( n_window->Xdisplay, 0, 0 );
+	glXDestroyContext( n_window->Xdisplay, n_window->render_context );
+ 
+	XDestroyWindow( n_window->Xdisplay, n_window->window_handle );
+	XFreeColormap( n_window->Xdisplay, n_window->cmap );
+	XCloseDisplay( n_window->Xdisplay );
 }
 
 void 

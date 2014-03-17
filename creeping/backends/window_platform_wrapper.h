@@ -41,6 +41,7 @@ typedef struct
 	XVisualInfo *visual;
 	GLXContext render_context;
 	Window Xroot, window_handle;
+	Colormap cmap;
 } NativeWindow;
 #endif
 

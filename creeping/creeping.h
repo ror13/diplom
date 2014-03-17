@@ -34,9 +34,11 @@ class Creeping : public CThread
 		Creeping();
 		~Creeping();
 		int open_conf(const char *filename);
+		int open_conf(const char *data, int data_size);
 		void play_once();
 	private:
 		static void * redraw_window(void * _this);
+		static void exit_redraw_window(void * _this);
 		void init();
 		void deinit();
 		

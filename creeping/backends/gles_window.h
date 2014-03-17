@@ -12,6 +12,7 @@ class GlesWindow : public CWindow
 		GlesWindow();
 		~GlesWindow();
 		virtual void open(ConfFile * conf_file);
+		virtual void close();
 		virtual void hide();
 		virtual void draw();
 		virtual void clear();

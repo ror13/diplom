@@ -55,6 +55,7 @@ class CWindow
 		virtual void hide() = 0;
 		virtual void clear() = 0;
 		virtual void draw() = 0;
+		virtual void close() = 0;
 		virtual void get_current_rect(int * x, int * y, 
 										int * width, int * height) = 0;
 		void reg_child(CSurface * child);

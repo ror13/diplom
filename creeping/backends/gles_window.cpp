@@ -11,10 +11,11 @@ GlesWindow::
 GlesWindow()
 {
 	DEBUG_PRINT_LINE;
-	init_window_system(&n_window);
 	memset(&window_rect,0,sizeof(window_rect));
-
+	memset(&n_window,0,sizeof(n_window));
 	memset(&bg_color,0,sizeof(bg_color));
+	init_window_system(&n_window);
+
 	box[0] = -1;	box[1] = -1;
 	box[2] = 1;		box[3] = -1;
 	box[4] = -1;	box[5] = 1;
@@ -35,6 +36,7 @@ GlesWindow::
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisable(GL_TEXTURE_2D);
+	close();
 	deinit_window_system(&n_window);
 	DEBUG_PRINT_LINE;
 	
@@ -135,7 +137,11 @@ open(ConfFile * conf_file)
 
 	DEBUG_PRINT_LINE;
 }
-
+void GlesWindow::
+close()
+{
+	destroy_native_window(&n_window);
+}
 //------------------------------ layout ---------------------------------------------------
 
 GlesSurface::
