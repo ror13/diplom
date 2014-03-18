@@ -116,6 +116,25 @@ find_server(std::string * ip)
 }
 
 bool
+net_client_send_msg_header(int * sockfd, struct sockaddr * serv_addr, char * msg_get, 
+							char * msg_send,int msges_size = 1)
+{
+	int n = 0;
+	*msg_get = MSG_ERR;
+	sendto(*sockfd,msg_send,msges_size,0, serv_addr,sizeof(struct sockaddr));
+	n = recvfrom(*sockfd, msg_get, msges_size, 0, NULL, NULL);
+	if(n<= 0)
+		return 1;
+	if(*msg_get != *msg_send)
+	{
+		char err_msg = MSG_ERR;
+		sendto(*sockfd,&err_msg,1,0, serv_addr,sizeof(struct sockaddr));
+		return 1;
+	}
+	return 0;
+}
+
+bool
 net_client(const char * serv_adr)
 {
 	int sockfd = 0;
@@ -135,17 +154,17 @@ net_client(const char * serv_adr)
     if( connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
     {
        return 1;
-    } 
+    }
+    
+    
 	Creeping creeping;
     for (;;)
     {
 		int n = 0;
 		char msg_send, msg_get;
-		msg_send = MSG_STATE;
-		msg_get = MSG_ERR;
-		sendto(sockfd,&msg_send,1,0,(struct sockaddr *)&serv_addr,sizeof(serv_addr));
-		n = recvfrom( sockfd, &msg_get, 1, 0, NULL, NULL);
-		if(n<= 0 || msg_get != msg_send)
+		
+		msg_send = MSG_STATE;		
+		if(net_client_send_msg_header(&sockfd, (struct sockaddr *)&serv_addr, &msg_get, &msg_send) != 0)
 			return 1;
 		n = recvfrom( sockfd, &msg_get, 1, 0, NULL, NULL);
 		if(n<= 0)
@@ -154,7 +173,9 @@ net_client(const char * serv_adr)
 		if(msg_get == MSG_STATE_STOP)
 		{
 			if(creeping.is_run())
+			{
 				creeping.stop();
+			}
 			goto continue_work;
 		}
 		
@@ -163,20 +184,16 @@ net_client(const char * serv_adr)
 			if(creeping.is_run())
 				goto continue_work;
 			msg_send = MSG_DATA_SIZE;
-			sendto(sockfd,&msg_send,1,0,(struct sockaddr *)&serv_addr,sizeof(serv_addr));
-			n = recvfrom( sockfd, &msg_get, 1, 0, NULL, NULL);
-			if(n<= 0 || msg_get != msg_send)
-				goto continue_work;
-			int data_size;
+			if(net_client_send_msg_header(&sockfd, (struct sockaddr *)&serv_addr, &msg_get, &msg_send) != 0)
+				return 1;
+			int data_size = 0;
 			n = recvfrom( sockfd, (char*)&data_size, 4, 0, NULL, NULL);
-			if(n<= 0 || msg_get <= 0)
+			if(n<= 0 || data_size <= 0)
 				goto continue_work;
 			char data[data_size];
 			msg_send = MSG_DATA;
-			sendto(sockfd,&msg_send,1,0,(struct sockaddr *)&serv_addr,sizeof(serv_addr));
-			n = recvfrom( sockfd, &msg_get, 1, 0, NULL, NULL);
-			if(n<= 0 || msg_get != msg_send)
-				goto continue_work;
+			if(net_client_send_msg_header(&sockfd, (struct sockaddr *)&serv_addr, &msg_get, &msg_send) != 0)
+				return 1;
 			n = recvfrom( sockfd, data, data_size, 0, NULL, NULL);
 			if(n<= 0)
 				goto continue_work;
@@ -197,11 +214,13 @@ start_with_net()
 	WSAStartup(MAKEWORD(2,2), &wsaData);
 	#endif
 	
-	
-	std::string serv_ip;
-	find_server(&serv_ip);
-	net_client(serv_ip.c_str());
-	
+	for(;;)
+	{
+		std::string serv_ip;
+		find_server(&serv_ip);
+		if(net_client(serv_ip.c_str()) == 0)
+			break;
+	}
 	#ifdef _WIN32
 	WSACleanup();
 	#endif

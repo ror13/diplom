@@ -1,4 +1,4 @@
-﻿Сборка начата 16.03.2014 16:28:10.
+﻿Сборка начата 17.03.2014 1:27:28.
      1>Проект "E:\diplom\window_manager\CreepingLine\CreepingLine.vcxproj" в узле 2 (целевые объекты build).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: каталог Intermediate заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Intermediate.
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: каталог Output заканчивается не косой чертой.  Этот экземпляр построения добавит косую черту, поскольку она необходима для правильного определения каталога Output.
@@ -235,12 +235,17 @@
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "sprintf"
      1>E:\diplom\window_manager\Libs\CImg.h(6336): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(371): см. объявление "vsprintf"
-     1>CreepingLineWnd.cpp(1003): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
-     1>CreepingLineWnd.cpp(1004): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
-     1>CreepingLineWnd.cpp(1004): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
-     1>CreepingLineWnd.cpp(1006): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
-     1>CreepingLineWnd.cpp(1009): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
-     1>CreepingLineWnd.cpp(1016): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(993): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(994): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(996): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(997): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(999): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1000): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1000): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1002): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1005): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1012): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
+     1>CreepingLineWnd.cpp(1017): warning C4482: использовано нестандартное расширение: перечислитель "NCP" использован в полном имени
          html2txt.cpp
          LinePropertyPageFont.cpp
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(147): warning C4996: 'wcsncpy': This function or variable may be unsafe. Consider using wcsncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -290,7 +295,7 @@
      1>e:\diplom\window_manager\libs\../Libs/SerializeStruct.h(195): warning C4996: '_i64tow': This function or variable may be unsafe. Consider using _i64tow_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\wchar.h(905): см. объявление "_i64tow"
          Создание кода...
-     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(980): warning C4715: CCreepingLineViewer::command_server: значение возвращается не при всех путях выполнения
+     1>e:\diplom\window_manager\creepingline\creepinglinewnd.cpp(970): warning C4715: CCreepingLineViewer::command_server: значение возвращается не при всех путях выполнения
          Компиляция...
          BitmapEx.cpp
      1>..\Libs\BitmapEx.cpp(170): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -569,4 +574,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:14.65
+Затраченное время: 00:00:14.09

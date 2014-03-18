@@ -45,19 +45,6 @@ typedef struct
 } NativeWindow;
 #endif
 
-#ifdef USE_WND_PLATFORM_LINUX_QT
-#include <QMainWindow>
-#include <QtWidgets/QApplication>
-#include <QtOpenGL/QGLWidget>
-#include <QDesktopWidget>
-
-typedef struct
-{
-	QApplication * app;
-	QGLWidget * window;
-} NativeWindow;
-#endif
-
 #ifdef USE_WND_PLATFORM_WINDOWS_GL
 
 #ifndef _WIN32_WINNT
@@ -69,15 +56,17 @@ typedef struct
 #include <GL/gl.h>
 #include <GL/glu.h>
 //#include <dwmapi.h>
-
-
 #pragma comment (lib, "opengl32.lib")
 #pragma comment (lib, "glu32.lib")
 
+#define WND_NAME "CL"
+
 typedef struct
 {
+	WNDCLASSEX wc;
 	HWND hWnd;           
 	HGLRC m_hrc;
+	HINSTANCE hThisInst;
 } NativeWindow;
 #endif
 
